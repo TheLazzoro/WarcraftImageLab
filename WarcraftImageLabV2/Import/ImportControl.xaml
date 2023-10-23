@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="WarcraftImageLabV2.Import.ImportControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WarcraftImageLabV2.Import"
+             mc:Ignorable="d" Height="120" Width="auto" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+
+
+        <ScrollViewer
+            Grid.ColumnSpan="3"
+            HorizontalScrollBarVisibility="Auto"
+            VerticalScrollBarVisibility="Disabled"
+            >
+
+            <GroupBox
+                Margin="6"
+                Header="Import"
+                >
+
+                <StackPanel
+                Orientation="Horizontal"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Center"
+                >
+                    <Button
+                    Grid.Column="0"
+                    Width="80"
+                    Height="30"
+                    Content="Choose File"
+                    Margin="4"
+                />
+
+                    <Button
+                    Grid.Column="1"
+                    Width="100"
+                    Height="30"
+                    Content="Choose Folder"
+                    Margin="4"
+                
+                />
+
+                    <StackPanel
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    >
+                        <TextBlock HorizontalAlignment="Center">Drop Files</TextBlock>
+                        <Image
+                            Source="/Import/drag2.png"
+                            Width="48"
+                            Height="48"
+                        />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </ScrollViewer>
+
+        <CheckBox
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Center"
+            Content="Include Subfolders"
+        />
+
+    </Grid>
+</UserControl>
