@@ -5,15 +5,14 @@
     <TargetFramework>net6.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Import\drag2.png" />
     <None Remove="Warcraft W.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Import\drag2.png" />
     <Resource Include="Warcraft W.png" />
   </ItemGroup>
 
@@ -69,6 +68,10 @@
     <None Update="Resources\Warcraft W.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ImageProcessing\" />
   </ItemGroup>
 
 </Project>

@@ -35,22 +35,36 @@
                 Grid.ColumnSpan="3"
                 HorizontalAlignment="Center"
                 >
-                    <Button
-                    Grid.Column="0"
-                    Width="80"
-                    Height="30"
-                    Content="Choose File"
-                    Margin="4"
+                    <Button x:Name="btnImportFile"
+                        Style="{StaticResource btnOrange}"
+                        Grid.Column="0"
+                        Width="80"
+                        Height="30"
+                        Content="Choose File"
+                        Margin="4" Click="btnImportFile_Click"
                 />
 
-                    <Button
-                    Grid.Column="1"
-                    Width="100"
-                    Height="30"
-                    Content="Choose Folder"
-                    Margin="4"
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Margin="8"
+                        Text="or"
+                    />
+
+                    <Button x:Name="btnImportFolder"
+                        Style="{StaticResource btnOrange}"
+                        Grid.Column="1"
+                        Width="100"
+                        Height="30"
+                        Content="Choose Folder"
+                        Margin="4" Click="btnImportFolder_Click"
                 
                 />
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Margin="8"
+                        Text="or"
+                    />
 
                     <StackPanel
                     Grid.Column="2"
@@ -58,7 +72,7 @@
                     >
                         <TextBlock HorizontalAlignment="Center">Drop Files</TextBlock>
                         <Image
-                            Source="/Import/drag2.png"
+                            Source="/Resources/drag2.png"
                             Width="48"
                             Height="48"
                         />
@@ -68,10 +82,13 @@
         </ScrollViewer>
 
         <CheckBox
+            x:Name="checkBoxSubfolders"
             Grid.Row="1"
             Grid.ColumnSpan="2"
             VerticalAlignment="Center"
             Content="Include Subfolders"
+            Margin="5,0,0,0"
+            IsChecked="True"
         />
 
     </Grid>

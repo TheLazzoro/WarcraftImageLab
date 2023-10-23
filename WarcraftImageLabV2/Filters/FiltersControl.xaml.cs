@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WarcraftImageLabV2.Content
+namespace WarcraftImageLabV2.Filters
 {
     /// <summary>
-    /// Interaction logic for ContentControl.xaml
+    /// Interaction logic for FiltersControl.xaml
     /// </summary>
-    public partial class MainControl : UserControl
+    public partial class FiltersControl : UserControl
     {
-        public MainControl()
+        public FiltersControl()
         {
             InitializeComponent();
         }

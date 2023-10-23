@@ -7,7 +7,7 @@
         xmlns:import="clr-namespace:WarcraftImageLabV2.Import" xmlns:content="clr-namespace:WarcraftImageLabV2.Content"
         mc:Ignorable="d"
         Title="Warcraft Image Lab" Height="450" Width="800" Background="#323232">
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="*"/>
@@ -15,9 +15,9 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="31*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="238*"/>
         </Grid.RowDefinitions>
 
@@ -34,13 +34,26 @@
             Grid.RowSpan="8"
         />
 
-        <Button 
+        <Button x:Name="btnTabImport"
+            Style="{StaticResource btnMenu}"
             Grid.Row="1"
-            Background="Transparent"
-            Content="IMPORT"
+            Content="IMPORT" Click="btnTabImport_Click"
         />
 
-        <content:MainControl
+        <Button x:Name="btnTabFilters"
+            Style="{StaticResource btnMenu}"
+            Grid.Row="2"
+            Content="FILTERS" Click="btnTabFilters_Click"
+        />
+
+        <Button x:Name="btnTabExport"
+            Style="{StaticResource btnMenu}"
+            Grid.Row="3"
+            Content="EXPORT" Click="btnTabExport_Click"
+        />
+
+        <content:MainControl 
+            x:Name="mainControl"
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Grid.RowSpan="5"

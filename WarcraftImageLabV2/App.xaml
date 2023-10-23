@@ -7,11 +7,12 @@
 
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Bahnschrift" />
-            <Setter Property="FontSize" Value="12.5" />
+            <Setter Property="FontFamily" Value="Bahnschrift Light" />
+            <Setter Property="FontSize" Value="13" />
         </Style>
 
-        <Style TargetType="Button">
+        <Style TargetType="Button" x:Key="btnOrange">
+            <Setter Property="UseLayoutRounding" Value="True" />
             <Setter Property="Background" Value="#FF7C0A" />
             <Setter Property="Width" Value="auto" />
             <Setter Property="Template">
@@ -33,9 +34,75 @@
             </Style.Triggers>
         </Style>
 
+        <Style TargetType="Button" x:Key="btnMenu">
+            <Setter Property="UseLayoutRounding" Value="True" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#555"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background" Value="#fa5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <Style TargetType="GridSplitter">
             <Setter Property="Background" Value="#696969"/>
         </Style>
-        
+
+        <Style TargetType="GroupBox">
+            <Setter Property="BorderThickness" Value="0.4" />
+        </Style>
+
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="#777" />
+        </Style>
+
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                        <Border BorderThickness="0,0,0,1" BorderBrush="#777" Background="Transparent">
+                            <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="5,5,5,0" Width="{TemplateBinding Width}" TextAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border
+                     BorderBrush="Transparent"
+                     BorderThickness="0"
+                     Background="{TemplateBinding Background}">
+                            <GridViewRowPresenter HorizontalAlignment="Stretch" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="Auto" Margin="0" Content="{TemplateBinding Content}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#888"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#999"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Application.Resources>
 </Application>

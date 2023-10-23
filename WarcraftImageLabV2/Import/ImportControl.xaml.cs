@@ -15,14 +15,24 @@ using System.Windows.Shapes;
 
 namespace WarcraftImageLabV2.Import
 {
-    /// <summary>
-    /// Interaction logic for ImportControl.xaml
-    /// </summary>
     public partial class ImportControl : UserControl
     {
+        public event Action OnClickImportFile;
+        public event Action OnClickImportFolder;
+
         public ImportControl()
         {
             InitializeComponent();
+        }
+
+        private void btnImportFile_Click(object sender, RoutedEventArgs e)
+        {
+            OnClickImportFile?.Invoke();
+        }
+
+        private void btnImportFolder_Click(object sender, RoutedEventArgs e)
+        {
+            OnClickImportFolder?.Invoke();
         }
     }
 }

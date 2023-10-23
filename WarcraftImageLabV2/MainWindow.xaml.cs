@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WarcraftImageLabV2.Content;
 
 namespace WarcraftImageLabV2
 {
@@ -20,9 +21,36 @@ namespace WarcraftImageLabV2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static MainWindow instance;
+
         public MainWindow()
         {
             InitializeComponent();
+            instance = this;
+        }
+
+        /// <summary>
+        /// This function only exists because of WPF wizardry.
+        /// With a debug build 'Application.Current.MainWindow' works, but not in release.
+        /// </summary>
+        public static MainWindow GetMainWindow()
+        {
+            return instance;
+        }
+
+        private void btnTabImport_Click(object sender, RoutedEventArgs e)
+        {
+            mainControl.ChangeTab(Model.TabMenuEnum.Import);
+        }
+
+        private void btnTabFilters_Click(object sender, RoutedEventArgs e)
+        {
+            mainControl.ChangeTab(Model.TabMenuEnum.Filters);
+        }
+
+        private void btnTabExport_Click(object sender, RoutedEventArgs e)
+        {
+            mainControl.ChangeTab(Model.TabMenuEnum.Export);
         }
     }
 }
