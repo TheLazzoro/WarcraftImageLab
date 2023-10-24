@@ -20,7 +20,7 @@ using System.Windows.Markup;
 
 namespace WarcraftImageLabV2.ImageProcessing
 {
-    internal static class Reader
+    public static class Reader
     {
         private static BcDecoder bcDecoder = new BcDecoder();
 
