@@ -57,7 +57,12 @@
             Content="Clear List" Click="btnClearList_Click"
         />
 
-        <Image x:Name="imagePreview" Grid.Column="1" Grid.RowSpan="3" />
+        <Image
+            x:Name="imagePreview"
+            Grid.Column="1"
+            Grid.RowSpan="3"
+            Stretch="Uniform" StretchDirection="DownOnly"
+            />
         <GridSplitter Grid.RowSpan="3" Width="5" />
 
     </Grid>

@@ -13,7 +13,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCnEncoder.Net" Version="1.2.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.2" />
+    <PackageReference Include="Svg" Version="3.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\War3Net\War3Net.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Warcraft W.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Dialogs\MessageWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -68,10 +84,6 @@
     <None Update="Resources\Warcraft W.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ImageProcessing\" />
   </ItemGroup>
 
 </Project>

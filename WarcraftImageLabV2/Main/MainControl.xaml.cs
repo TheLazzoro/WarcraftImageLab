@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,14 +18,12 @@ using System.Windows.Shapes;
 using WarcraftImageLabV2.Dialogs;
 using WarcraftImageLabV2.Export;
 using WarcraftImageLabV2.Filters;
+using WarcraftImageLabV2.ImageProcessing;
 using WarcraftImageLabV2.Import;
 using WarcraftImageLabV2.Model;
 
 namespace WarcraftImageLabV2.Content
 {
-    /// <summary>
-    /// Interaction logic for ContentControl.xaml
-    /// </summary>
     public partial class MainControl : UserControl
     {
         private MainControlViewModel viewModel;
@@ -148,7 +147,18 @@ namespace WarcraftImageLabV2.Content
 
         private void listViewFiles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //imagePreview.Source = 
+            int index = listViewFiles.SelectedIndex;
+            FileItem item = viewModel.FileItems[index];
+            try
+            {
+                Bitmap bitmap = Reader.ReadImageFile(item.FullPath);
+                imagePreview.Source = BitmapConverter.ToBitmapSource(bitmap);
+            }
+            catch (Exception ex)
+            {
+                MessageWindow message = new MessageWindow("Error", ex.Message);
+                message.ShowDialog();
+            }
         }
     }
 }
