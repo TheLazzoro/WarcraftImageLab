@@ -23,6 +23,15 @@ namespace WarcraftImageLabV2.Preview
             InitializeComponent();
         }
 
+        public void UpdateImage(BitmapSource bitmapSource)
+        {
+            image.Source = bitmapSource;
+
+            int width = (int) Math.Round(bitmapSource.Width);
+            int height = (int)Math.Round(bitmapSource.Height);
+            textBlockResolution.Text = $"Resolution: {width}x{height}";
+        }
+
         private Point GetImageCoordsAt(MouseButtonEventArgs e)
         {
             if (image != null && image.IsMouseOver)
@@ -57,6 +66,8 @@ namespace WarcraftImageLabV2.Preview
                 A = pixel.A,
             };
             rectColor.Fill = new SolidColorBrush(color);
+            textColor.Text = $"R:{pixel.R} G:{pixel.G} B:{pixel.B} A:{pixel.A}   {color}";
         }
+
     }
 }

@@ -21,6 +21,7 @@ using WarcraftImageLabV2.Filters;
 using WarcraftImageLabV2.ImageProcessing;
 using WarcraftImageLabV2.Import;
 using WarcraftImageLabV2.Model;
+using WarcraftImageLabV2.Preview;
 
 namespace WarcraftImageLabV2.Content
 {
@@ -55,7 +56,7 @@ namespace WarcraftImageLabV2.Content
 
             importControl.OnClickImportFile += ImportControl_OnClickImportFile;
             importControl.OnClickImportFolder += ImportControl_OnClickImportFolder;
-            viewModel.OnFileAdded += ViewModel_OnFileAdded;
+            viewModel.FileItems.CollectionChanged += FileItems_CollectionChanged; ;
         }
 
         public void ChangeTab(TabMenuEnum tabToShow)
@@ -129,11 +130,10 @@ namespace WarcraftImageLabV2.Content
             }
         }
 
-        private void ViewModel_OnFileAdded()
+        private void FileItems_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             textBlockItemCount.Text = "Items: " + viewModel.FileItems.Count;
         }
-
 
         private void btnClearList_Click(object sender, RoutedEventArgs e)
         {
@@ -141,18 +141,24 @@ namespace WarcraftImageLabV2.Content
             dialog.ShowDialog();
             if (dialog.OK)
             {
-                listViewFiles.Items.Clear();
+                viewModel.FileItems.Clear();
             }
         }
 
         private void listViewFiles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(listViewFiles.Items.Count == 0)
+            {
+                return;
+            }
+
             int index = listViewFiles.SelectedIndex;
             FileItem item = viewModel.FileItems[index];
             try
             {
                 Bitmap bitmap = Reader.ReadImageFile(item.FullPath);
-                previewControl.image.Source = BitmapConverter.ToBitmapSource(bitmap);
+                BitmapSource bitmapSource = BitmapConverter.ToBitmapSource(bitmap);
+                previewControl.UpdateImage(bitmapSource);
             }
             catch (Exception ex)
             {

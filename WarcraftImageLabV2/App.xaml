@@ -82,6 +82,7 @@
         </Style>
 
         <Style TargetType="ListViewItem">
+            <Setter Property="ToolTip" Value="{Binding FullPath}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -102,6 +103,10 @@
                     <Setter Property="Background" Value="#999"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="#444" />
         </Style>
 
     </Application.Resources>

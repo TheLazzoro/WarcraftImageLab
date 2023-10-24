@@ -14,6 +14,9 @@ using SixLabors.ImageSharp.PixelFormats;
 using War3Net.Drawing.Blp;
 using BCnEncoder.Decoder;
 using Svg;
+using System.Runtime.InteropServices;
+using System.Windows.Media.Media3D;
+using System.Windows.Markup;
 
 namespace WarcraftImageLabV2.ImageProcessing
 {
@@ -96,33 +99,16 @@ namespace WarcraftImageLabV2.ImageProcessing
             byte[] bytes = blpFile.GetPixels(0, out width, out height, blpFile._isBLP2); // 0 indicates first mipmap layer. width and height are assigned width and height in GetPixels().
             var actualImage = blpFile.GetBitmapSource(0);
             int bytesPerPixel = (actualImage.Format.BitsPerPixel + 7) / 8;
-            int stride = bytesPerPixel * actualImage.PixelWidth;
 
-            // blp read and convert
-            Bitmap image = new Bitmap(width, height);
+            Bitmap image = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
 
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    var offset = (y * stride) + (x * bytesPerPixel);
+            BitmapData bmpData = image.LockBits(
+                                 new Rectangle(0, 0, image.Width, image.Height),
+                                 ImageLockMode.WriteOnly, image.PixelFormat);
 
-                    byte red;
-                    byte green;
-                    byte blue;
-                    byte alpha = 0;
-
-                    red = bytes[offset + 0];
-                    green = bytes[offset + 1];
-                    blue = bytes[offset + 2];
-                    alpha = bytes[offset + 3];
-
-                    image.SetPixel(x, y, System.Drawing.Color.FromArgb(alpha, blue, green, red)); // assign color to pixel
-                }
-            }
-
+            Marshal.Copy(bytes, 0, bmpData.Scan0, bytes.Length);
+            image.UnlockBits(bmpData);
             blpFile.Dispose();
-
             return image;
         }
 

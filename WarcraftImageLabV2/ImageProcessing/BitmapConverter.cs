@@ -40,7 +40,7 @@ namespace WarcraftImageLabV2.ImageProcessing
             var bitmapSource = BitmapSource.Create(
                 bitmapData.Width, bitmapData.Height,
                 bitmap.HorizontalResolution, bitmap.VerticalResolution,
-                PixelFormats.Bgr32, null,
+                PixelFormats.Bgra32, null,
                 bitmapData.Scan0, bitmapData.Stride * bitmapData.Height, bitmapData.Stride);
 
             bitmap.UnlockBits(bitmapData);
@@ -48,14 +48,14 @@ namespace WarcraftImageLabV2.ImageProcessing
             return bitmapSource;
         }
 
-        internal static System.Drawing.Bitmap BitmapSourceToBitmap(BitmapSource srs)
+        internal static System.Drawing.Bitmap BitmapSourceToBitmap(BitmapSource srs, System.Drawing.Imaging.PixelFormat format = System.Drawing.Imaging.PixelFormat.Format32bppPArgb)
         {
             var width = srs.PixelWidth;
             var height = srs.PixelHeight;
             var stride = width * ((srs.Format.BitsPerPixel + 7) / 8);
             var memoryBlockPointer = Marshal.AllocHGlobal(height * stride);
             srs.CopyPixels(new Int32Rect(0, 0, width, height), memoryBlockPointer, height * stride, stride);
-            var bitmap = new Bitmap(width, height, stride, System.Drawing.Imaging.PixelFormat.Format32bppPArgb, memoryBlockPointer);
+            var bitmap = new Bitmap(width, height, stride, format, memoryBlockPointer);
             return bitmap;
         }
     }
