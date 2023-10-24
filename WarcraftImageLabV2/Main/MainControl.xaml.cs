@@ -152,7 +152,7 @@ namespace WarcraftImageLabV2.Content
             try
             {
                 Bitmap bitmap = Reader.ReadImageFile(item.FullPath);
-                imagePreview.Source = BitmapConverter.ToBitmapSource(bitmap);
+                previewControl.image.Source = BitmapConverter.ToBitmapSource(bitmap);
             }
             catch (Exception ex)
             {

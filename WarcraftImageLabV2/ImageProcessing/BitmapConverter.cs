@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using System.Runtime.InteropServices;
+using System.Windows;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace WarcraftImageLabV2.ImageProcessing
 {
@@ -42,6 +46,17 @@ namespace WarcraftImageLabV2.ImageProcessing
             bitmap.UnlockBits(bitmapData);
 
             return bitmapSource;
+        }
+
+        internal static System.Drawing.Bitmap BitmapSourceToBitmap(BitmapSource srs)
+        {
+            var width = srs.PixelWidth;
+            var height = srs.PixelHeight;
+            var stride = width * ((srs.Format.BitsPerPixel + 7) / 8);
+            var memoryBlockPointer = Marshal.AllocHGlobal(height * stride);
+            srs.CopyPixels(new Int32Rect(0, 0, width, height), memoryBlockPointer, height * stride, stride);
+            var bitmap = new Bitmap(width, height, stride, System.Drawing.Imaging.PixelFormat.Format32bppPArgb, memoryBlockPointer);
+            return bitmap;
         }
     }
 }

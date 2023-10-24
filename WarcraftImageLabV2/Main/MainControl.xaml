@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WarcraftImageLabV2.Content"
-             xmlns:import="clr-namespace:WarcraftImageLabV2.Import"
+             xmlns:import="clr-namespace:WarcraftImageLabV2.Import" 
+             xmlns:preview="clr-namespace:WarcraftImageLabV2.Preview"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="#4B4B4B">
     <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -57,13 +58,11 @@
             Content="Clear List" Click="btnClearList_Click"
         />
 
-        <Image
-            x:Name="imagePreview"
-            Grid.Column="1"
-            Grid.RowSpan="3"
-            Stretch="Uniform" StretchDirection="DownOnly"
-            />
         <GridSplitter Grid.RowSpan="3" Width="5" />
+        <preview:PreviewControl
+            x:Name="previewControl"
+            Grid.Column="1"
+            Grid.RowSpan="3" />
 
     </Grid>
 </UserControl>

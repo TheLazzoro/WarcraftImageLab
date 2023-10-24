@@ -9,7 +9,77 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Warcraft W.png" />
+    <None Remove="Resources\drag.png" />
+    <None Remove="Resources\drag2.png" />
+    <None Remove="Resources\Icon_Border.png" />
+    <None Remove="Resources\Icon_Border_Attack.png" />
+    <None Remove="Resources\Icon_Border_Attack_Upgrade.png" />
+    <None Remove="Resources\Icon_Border_Autocast.png" />
+    <None Remove="Resources\Icon_Border_Disabled.png" />
+    <None Remove="Resources\Icon_Border_Passive.png" />
+    <None Remove="Resources\Reforged_Icon_Border_Attack.png" />
+    <None Remove="Resources\Reforged_Icon_Border_Attack_Upgrade.png" />
+    <None Remove="Resources\Reforged_Icon_Border_Autocast.png" />
+    <None Remove="Resources\Reforged_Icon_Border_Button.png" />
+    <None Remove="Resources\Reforged_Icon_Border_Disabled.png" />
+    <None Remove="Resources\Reforged_Icon_Border_Passive.png" />
+    <None Remove="Resources\Reforged_Icon_Border_Passive_Disabled.png" />
+    <None Remove="Resources\transparencytiles.PNG" />
+    <None Remove="Resources\Warcraft W.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\drag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\drag2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon_Border.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon_Border_Attack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon_Border_Attack_Upgrade.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon_Border_Autocast.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon_Border_Disabled.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon_Border_Passive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Reforged_Icon_Border_Attack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Reforged_Icon_Border_Attack_Upgrade.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Reforged_Icon_Border_Autocast.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Reforged_Icon_Border_Button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Reforged_Icon_Border_Disabled.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Reforged_Icon_Border_Passive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Reforged_Icon_Border_Passive_Disabled.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\transparencytiles.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Warcraft W.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -23,67 +93,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Warcraft W.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Dialogs\MessageWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Resources\drag.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\drag2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Icon_Border.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Icon_Border_Attack.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Icon_Border_Attack_Upgrade.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Icon_Border_Autocast.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Icon_Border_Disabled.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Icon_Border_Passive.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Reforged_Icon_Border_Attack.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Reforged_Icon_Border_Attack_Upgrade.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Reforged_Icon_Border_Autocast.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Reforged_Icon_Border_Button.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Reforged_Icon_Border_Disabled.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Reforged_Icon_Border_Passive.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Reforged_Icon_Border_Passive_Disabled.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\transparencytiles.PNG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Warcraft W.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="WarcraftImageLabV2.Preview.PreviewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WarcraftImageLabV2.Preview"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal">
+            <Rectangle
+                x:Name="rectColor"
+                Width="16"
+                Height="16"
+                Margin="5,0,0,10"
+            />
+            <TextBlock
+                x:Name="textColor"
+                Margin="5,10,0,0"
+                >asdasd</TextBlock>
+        </StackPanel>
+        <Image
+            x:Name="image"
+            Grid.Row="1"
+            Stretch="Uniform"
+            StretchDirection="DownOnly"
+            MouseDown="image_MouseDown"
+            />
+
+    </Grid>
+</UserControl>

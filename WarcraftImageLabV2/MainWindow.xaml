@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <Image
-            Source="/Warcraft W.png"
+            Source="Resources/Warcraft W.png"
             Width="64"
             Height="64" Margin="18,18,18,18"
         />
