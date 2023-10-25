@@ -27,19 +27,22 @@
 
             <Button
                 Style="{StaticResource btnOrange}"
-                x:Name="btnCancel"
+                x:Name="btnOk"
                 Width="60"
                 Margin="5"
-                Content="Cancel" Click="btnCancel_Click"
+                Content="OK"
+                Click="btnOk_Click"
             />
 
             <Button
                 Style="{StaticResource btnOrange}"
-                x:Name="btnOk"
+                x:Name="btnCancel"
                 Width="60"
                 Margin="5"
-                Content="OK" Click="btnOk_Click"
+                Content="Cancel"
+                Click="btnCancel_Click"
             />
+
         </StackPanel>
 
     </Grid>

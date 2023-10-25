@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using WebPWrapper;
 using SixLabors.ImageSharp.PixelFormats;
 using War3Net.Drawing.Blp;
 using BCnEncoder.Decoder;
@@ -18,7 +17,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Media.Media3D;
 using System.Windows.Markup;
 
-namespace WarcraftImageLabV2.ImageProcessing
+namespace WarcraftImageLabV2.ImageProcessing.Read
 {
     public static class Reader
     {
@@ -134,13 +133,13 @@ namespace WarcraftImageLabV2.ImageProcessing
             // Start address is at offset 0x62, file size at 0x7A, orientation at 0x6E
             fs.Seek(0x62, SeekOrigin.Begin);
             BinaryReader br = new BinaryReader(fs);
-            UInt32 jpgStartPosition = br.ReadUInt32();  // 62
+            uint jpgStartPosition = br.ReadUInt32();  // 62
             br.ReadUInt32();  // 66
             br.ReadUInt32();  // 6A
-            UInt32 orientation = br.ReadUInt32() & 0x000000FF; // 6E
+            uint orientation = br.ReadUInt32() & 0x000000FF; // 6E
             br.ReadUInt32();  // 72
             br.ReadUInt32();  // 76
-            Int32 fileSize = br.ReadInt32();  // 7A
+            int fileSize = br.ReadInt32();  // 7A
 
             fs.Seek(jpgStartPosition, SeekOrigin.Begin);
 

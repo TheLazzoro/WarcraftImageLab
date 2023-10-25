@@ -1,4 +1,4 @@
-using WarcraftImageLabV2.ImageProcessing;
+using WarcraftImageLabV2.ImageProcessing.Read;
 
 namespace Tests
 {

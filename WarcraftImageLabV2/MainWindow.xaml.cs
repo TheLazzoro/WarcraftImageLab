@@ -52,5 +52,23 @@ namespace WarcraftImageLabV2
         {
             mainControl.ChangeTab(Model.TabMenuEnum.Export);
         }
+
+        private void Window_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                    mainControl.AddFileSystemEntry(files[i]);
+                }
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Settings.Save();
+        }
     }
 }

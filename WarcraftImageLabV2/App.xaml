@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WarcraftImageLabV2"
+             DispatcherUnhandledException="Application_DispatcherUnhandledException"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
@@ -9,6 +10,14 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="Bahnschrift Light" />
             <Setter Property="FontSize" Value="13" />
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="#777" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="Button" x:Key="btnOrange">
@@ -108,6 +117,25 @@
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="#444" />
         </Style>
+
+        <Style TargetType="ContextMenu">
+            <Setter Property="Background" Value="#444" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="HasDropShadow" Value="True" />
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style TargetType="{x:Type MenuItem}" x:Key="MenuItemCustom">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Foreground" Value="#F2F"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="#444"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
 
     </Application.Resources>
 </Application>

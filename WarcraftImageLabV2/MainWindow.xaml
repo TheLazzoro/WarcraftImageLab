@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WarcraftImageLabV2"
         xmlns:import="clr-namespace:WarcraftImageLabV2.Import" xmlns:content="clr-namespace:WarcraftImageLabV2.Content"
         mc:Ignorable="d"
-        Title="Warcraft Image Lab" Height="450" Width="800" Background="#323232">
+        Title="Warcraft Image Lab" Height="450" Width="800" Background="#323232" Drop="Window_Drop" AllowDrop="True" Closing="Window_Closing">
     <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>

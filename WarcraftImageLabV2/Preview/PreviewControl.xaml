@@ -48,5 +48,13 @@
             />
         </Border>
 
+        <TextBlock
+            x:Name="textBlockError"
+            Grid.Row="1"
+            Foreground="#f55"
+            Margin="5"
+            TextWrapping="Wrap"
+        />
+
     </Grid>
 </UserControl>

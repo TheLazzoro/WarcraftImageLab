@@ -17,7 +17,7 @@ namespace WarcraftImageLabV2.ImageProcessing
 {
     internal class BitmapConverter
     {
-        internal static System.Drawing.Bitmap ToBitmap(SixLabors.ImageSharp.Image<Rgba32> image)
+        internal static Bitmap ToBitmap(Image<Rgba32> image)
         {
             Stream stream = new MemoryStream();
             // we need an encoder to preserve transparency.
@@ -28,14 +28,14 @@ namespace WarcraftImageLabV2.ImageProcessing
             }; 
             image.SaveAsBmp(stream, bmpEncoder);
 
-            return new System.Drawing.Bitmap(stream);
+            return new Bitmap(stream);
         }
 
-        internal static BitmapSource ToBitmapSource(System.Drawing.Bitmap bitmap)
+        internal static BitmapSource ToBitmapSource(Bitmap bitmap)
         {
             var bitmapData = bitmap.LockBits(
                 new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                System.Drawing.Imaging.ImageLockMode.ReadOnly, bitmap.PixelFormat);
+                ImageLockMode.ReadOnly, bitmap.PixelFormat);
 
             var bitmapSource = BitmapSource.Create(
                 bitmapData.Width, bitmapData.Height,
@@ -48,7 +48,7 @@ namespace WarcraftImageLabV2.ImageProcessing
             return bitmapSource;
         }
 
-        internal static System.Drawing.Bitmap BitmapSourceToBitmap(BitmapSource srs, System.Drawing.Imaging.PixelFormat format = System.Drawing.Imaging.PixelFormat.Format32bppPArgb)
+        internal static Bitmap BitmapSourceToBitmap(BitmapSource srs, System.Drawing.Imaging.PixelFormat format = System.Drawing.Imaging.PixelFormat.Format32bppPArgb)
         {
             var width = srs.PixelWidth;
             var height = srs.PixelHeight;

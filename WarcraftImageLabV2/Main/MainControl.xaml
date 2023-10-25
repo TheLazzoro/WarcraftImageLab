@@ -25,7 +25,7 @@
             ItemsSource="{Binding FileItems}"
             Grid.Row="1"
             Margin="5,0,10,0"
-            SelectionChanged="listViewFiles_SelectionChanged"
+            SelectionChanged="listViewFiles_SelectionChanged" KeyDown="listViewFiles_KeyDown" ContextMenuOpening="listViewFiles_ContextMenuOpening"
             >
             <ListView.View>
                 <GridView>
@@ -39,6 +39,13 @@
                                     />
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menuConvert" Style="{StaticResource MenuItemCustom}" Header="Convert" Click="menuConvert_Click" />
+                    <MenuItem x:Name="menuOpenFileLocation" Style="{StaticResource MenuItemCustom}" Header="Open File Location" Click="menuOpenFileLocation_Click" />
+                    <MenuItem x:Name="menuRemoveItem" Style="{StaticResource MenuItemCustom}" Header="Remove" Click="menuRemoveItem_Click" />
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
 
         <TextBlock

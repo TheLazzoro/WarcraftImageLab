@@ -41,5 +41,10 @@ namespace WarcraftImageLabV2.Content
                 AddFileToList(fullPath);
             }
         }
+
+        public void RemoveFileAt(int index)
+        {
+            _fileItems.RemoveAt(index);
+        }
     }
 }

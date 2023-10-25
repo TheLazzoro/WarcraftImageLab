@@ -4,8 +4,69 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WarcraftImageLabV2.Filters"
-             mc:Ignorable="d" Height="150" Width="427">
+             mc:Ignorable="d" Height="auto" Width="auto">
     <Grid>
-            
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox
+            Header="Warcraft III Icon Borders"
+            Margin="5,5,10,0"
+        >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MinWidth="150"/>
+                    <ColumnDefinition Width="*" MinWidth="150"/>
+                    <ColumnDefinition Width="*" MinWidth="100"/>
+                </Grid.ColumnDefinitions>
+
+                <RadioButton
+                    x:Name="radBtnNone"
+                    Content="None"
+                    VerticalAlignment="Center" Click="radBtnNone_Click" Checked="radBtnNone_Checked"
+                />
+                <RadioButton
+                    x:Name="radBtnClassic"
+                    Grid.Column="1"
+                    Content="Classic"
+                    VerticalAlignment="Center" Click="radBtnClassic_Click" Checked="radBtnClassic_Checked"
+                />
+                <RadioButton
+                    x:Name="radBtnReforged"
+                    Grid.Column="2"
+                    Content="Reforged"
+                    VerticalAlignment="Center" Click="radBtnReforged_Click" Checked="radBtnReforged_Checked"
+                />
+
+                <StackPanel Grid.Row="1">
+                    <CheckBox x:Name="checkBTN" Content="BTN" Margin="0,10,0,0" Click="checkBTN_Click" />
+                    <CheckBox x:Name="checkPAS" Content="PAS" Margin="0,10,0,0" Click="checkPAS_Click" />
+                    <CheckBox x:Name="checkATC" Content="ATC" Margin="0,10,0,0" Click="checkATC_Click" />
+                    <CheckBox x:Name="checkInfocard" Content="Infocard" Margin="0,10,0,0" Click="checkInfocard_Click" />
+                    <CheckBox x:Name="checkInfocardUpgrade" Content="Infocard-Upgrade" Margin="0,10,0,0" Click="checkInfocardUpgrade_Click" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <CheckBox x:Name="checkDISBTN" Content="DISBTN" Margin="0,10,0,0" Click="checkDISBTN_Click" />
+                    <CheckBox x:Name="checkDISPAS" Content="DISPAS" Margin="0,10,0,0" Click="checkDISPAS_Click" />
+                    <CheckBox x:Name="checkDISATC" Content="DISATC" Margin="0,10,0,0" Click="checkDISATC_Click" />
+                </StackPanel>
+
+            </Grid>
+        </GroupBox>
+
+        <TextBlock
+            Text="Resize"
+            Grid.Row="2"
+            Margin="5"
+        />
+
     </Grid>
 </UserControl>
