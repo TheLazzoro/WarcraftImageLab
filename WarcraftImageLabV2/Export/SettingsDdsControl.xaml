@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="WarcraftImageLabV2.Export.SettingsDdsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WarcraftImageLabV2.Export"
+             mc:Ignorable="d" Height="auto" Width="auto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Text="Compression:"
+        />
+        <ComboBox
+            x:Name="comboboxCompression"
+            Grid.Row="1" SelectionChanged="comboboxCompression_SelectionChanged"
+        />
+        <CheckBox
+            x:Name="checkboxMipmaps"
+            Grid.Row="2"
+            Content="Generate Mipmaps" Click="checkboxMipmaps_Click"
+        />
+        <TextBlock
+            Grid.Row="3"
+            VerticalAlignment="Bottom"
+            Text="Compression Quality"
+        />
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="4"
+            >
+            <RadioButton
+                x:Name="radbtnFastest"
+                Content="Fastest"
+                Margin="0,0,10,0" Click="radbtnFastest_Click"
+            />
+            <RadioButton
+                x:Name="radbtnBalanced"
+                Content="Balanced"
+                Margin="0,0,10,0" Click="radbtnBalanced_Click"
+            />
+            <RadioButton
+                x:Name="radbtnHighest"
+                Content="Highest"
+                Margin="0,0,10,0" Click="radbtnHighest_Click"
+            />
+        </StackPanel>
+
+    </Grid>
+</UserControl>

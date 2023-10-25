@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BCnEncoder.Decoder;
+using SixLabors.ImageSharp.PixelFormats;
+using Svg;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO.Compression;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using SixLabors.ImageSharp.PixelFormats;
-using War3Net.Drawing.Blp;
-using BCnEncoder.Decoder;
-using Svg;
 using System.Runtime.InteropServices;
-using System.Windows.Media.Media3D;
-using System.Windows.Markup;
+using War3Net.Drawing.Blp;
+using ImageFormat = WarcraftImageLabV2.ImageProcessing.ImageSettings.ImageFormat;
 
 namespace WarcraftImageLabV2.ImageProcessing.Read
 {
