@@ -17,13 +17,17 @@ namespace Tests
     [TestClass]
     public class WriterTests
     {
-        string outputDir;
-        string file;
+        static string outputDir;
+        static string file;
 
-        [TestInitialize]
-        public void BeforeEach()
+        [ClassInitialize]
+        public static void Init(TestContext context)
         {
             outputDir = Path.Combine(Directory.GetCurrentDirectory(), "WriteTests");
+            if (Directory.Exists(outputDir))
+            {
+                Directory.Delete(outputDir, true);
+            }
             if (!Directory.Exists(outputDir))
             {
                 Directory.CreateDirectory(outputDir);
@@ -45,11 +49,12 @@ namespace Tests
         {
             Settings settings = Settings.Load();
             settings.ImageFormat = format;
+            settings.KeepFilename = true;
 
             string extension = "." + format.ToString().ToLower();
             string[] files = new string[] { file };
             string fileName = Path.GetFileNameWithoutExtension(file);
-            
+
             Writer writer = new Writer(fileName, outputDir, files);
             writer.Write();
             string expectedPath = Path.Combine(outputDir, fileName) + extension;
