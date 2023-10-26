@@ -13,12 +13,12 @@ namespace WarcraftImageLabV2.ImageProcessing
     {
         private Settings settings;
         private bool isPreview;
-        private string fileName;
+        private string outputFileName;
 
-        public Processor(string fileName, bool isPreview = false)
+        public Processor(string outputFileName, bool isPreview = false)
         {
             settings = Settings.Load();
-            this.fileName = fileName;
+            this.outputFileName = outputFileName;
             this.isPreview = isPreview;
         }
 
@@ -72,7 +72,7 @@ namespace WarcraftImageLabV2.ImageProcessing
 
             if (isNone || notClassicCompatible || notReforgedCompatible)
             {
-                var processedImage = new ProcessedImage(source, fileName);
+                var processedImage = new ProcessedImage(source, outputFileName);
                 list.Add(processedImage);
                 return list;
             }
@@ -84,7 +84,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.BTN);
                 AddIconBorderStandard(sourceCopy, border, IconType.BTN);
-                var processedImage = new ProcessedImage(sourceCopy, "BTN" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "BTN" + outputFileName);
                 list.Add(processedImage);
             }
             if (settings.BorderPAS && !(isPreview && list.Count > 0))
@@ -92,7 +92,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.PAS);
                 AddIconBorderStandard(sourceCopy, border, IconType.PAS);
-                var processedImage = new ProcessedImage(sourceCopy, "PAS" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "PAS" + outputFileName);
                 list.Add(processedImage);
             }
             if (settings.BorderATC && !(isPreview && list.Count > 0))
@@ -100,7 +100,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.ATC);
                 AddIconBorderStandard(sourceCopy, border, IconType.ATC);
-                var processedImage = new ProcessedImage(sourceCopy, "ATC" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "ATC" + outputFileName);
                 list.Add(processedImage);
             }
             if (settings.BorderInfocard && !(isPreview && list.Count > 0))
@@ -108,7 +108,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.ATT);
                 sourceCopy = AddIconBorderUPG(sourceCopy, border);
-                var processedImage = new ProcessedImage(sourceCopy, "ATT" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "ATT" + outputFileName);
                 list.Add(processedImage);
             }
             if (settings.BorderInfocardUpgrade && !(isPreview && list.Count > 0))
@@ -116,7 +116,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.UPG);
                 sourceCopy = AddIconBorderUPG(sourceCopy, border);
-                var processedImage = new ProcessedImage(sourceCopy, "UPG" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "UPG" + outputFileName);
                 list.Add(processedImage);
             }
             if (settings.BorderDISBTN && !(isPreview && list.Count > 0))
@@ -124,7 +124,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.DISBTN);
                 AddIconBorderStandard(sourceCopy, border, IconType.DISBTN);
-                var processedImage = new ProcessedImage(sourceCopy, "DISBTN" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "DISBTN" + outputFileName);
                 list.Add(processedImage);
             }
             if (settings.BorderDISPAS && !(isPreview && list.Count > 0))
@@ -132,7 +132,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.DISPAS);
                 AddIconBorderStandard(sourceCopy, border, IconType.DISPAS);
-                var processedImage = new ProcessedImage(sourceCopy, "DISPAS" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "DISPAS" + outputFileName);
                 list.Add(processedImage);
             }
             if (settings.BorderDISATC && !(isPreview && list.Count > 0))
@@ -140,14 +140,14 @@ namespace WarcraftImageLabV2.ImageProcessing
                 Bitmap sourceCopy = (Bitmap)source.Clone();
                 Bitmap border = processor.GetBorder(IconType.DISATC);
                 AddIconBorderStandard(sourceCopy, border, IconType.DISATC);
-                var processedImage = new ProcessedImage(sourceCopy, "DISATC" + fileName);
+                var processedImage = new ProcessedImage(sourceCopy, "DISATC" + outputFileName);
                 list.Add(processedImage);
             }
 
             // Failsafe if no icon is selected
             if(list.Count == 0)
             {
-                var processedImage = new ProcessedImage(source, fileName);
+                var processedImage = new ProcessedImage(source, outputFileName);
                 list.Add(processedImage);
             }
 

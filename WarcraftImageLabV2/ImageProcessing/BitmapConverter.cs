@@ -25,7 +25,7 @@ namespace WarcraftImageLabV2.ImageProcessing
             {
                 BitsPerPixel = SixLabors.ImageSharp.Formats.Bmp.BmpBitsPerPixel.Pixel32, // bitmap transparency needs 32 bits per pixel before we set transparency support.
                 SupportTransparency = true,
-            }; 
+            };
             image.SaveAsBmp(stream, bmpEncoder);
 
             return new Bitmap(stream);
@@ -57,6 +57,18 @@ namespace WarcraftImageLabV2.ImageProcessing
             srs.CopyPixels(new Int32Rect(0, 0, width, height), memoryBlockPointer, height * stride, stride);
             var bitmap = new Bitmap(width, height, stride, format, memoryBlockPointer);
             return bitmap;
+        }
+
+        internal static Image<Rgba32> ToImageSharpImage(System.Drawing.Bitmap bitmap)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                bitmap.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
+
+                memoryStream.Seek(0, SeekOrigin.Begin);
+
+                return SixLabors.ImageSharp.Image.Load<Rgba32>(memoryStream);
+            }
         }
     }
 }

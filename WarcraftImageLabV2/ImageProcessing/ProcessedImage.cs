@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WarcraftImageLabV2.ImageProcessing
 {
-    internal class ProcessedImage
+    public class ProcessedImage
     {
         public Bitmap Image { get; }
         public string FileName { get; }

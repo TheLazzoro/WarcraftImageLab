@@ -22,11 +22,18 @@ namespace WarcraftImageLabV2
     public partial class MainWindow : Window
     {
         private static MainWindow instance;
+        private Settings settings;
 
         public MainWindow()
         {
             InitializeComponent();
             instance = this;
+
+            settings = Settings.Load();
+            this.Left = settings.WindowX;
+            this.Top = settings.WindowY;
+            this.Width = settings.WindowWidth;
+            this.Height = settings.WindowHeight;
         }
 
         /// <summary>
@@ -68,6 +75,10 @@ namespace WarcraftImageLabV2
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            settings.WindowX = (int)this.Left;
+            settings.WindowY = (int)this.Top;
+            settings.WindowWidth = (int)this.Width;
+            settings.WindowHeight = (int)this.Height;
             Settings.Save();
         }
     }

@@ -14,6 +14,15 @@ namespace WarcraftImageLabV2
         private static Settings instance;
         private static readonly string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Warcraft Image Lab/settings.json");
 
+        #region Window settings
+
+        public int WindowX = 100;
+        public int WindowY = 100;
+        public int WindowWidth = 1000;
+        public int WindowHeight = 600;
+
+        #endregion
+
         #region Filter settings
 
         public BorderModeEnum BorderMode = BorderModeEnum.None;
@@ -36,6 +45,7 @@ namespace WarcraftImageLabV2
 
         public ImageFormatExportable ImageFormat = ImageFormatExportable.JPG;
         public int QualityJPG = 5;
+        public int QualityWebP = 5;
         public CompressionDDS CompressionDDS = CompressionDDS.BC1;
         public QualityDDS QualityDDS = QualityDDS.Balanced;
         public bool GenerateMipmapsDDS = true;

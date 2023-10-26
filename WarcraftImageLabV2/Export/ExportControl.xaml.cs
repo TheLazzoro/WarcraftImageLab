@@ -92,7 +92,7 @@ namespace WarcraftImageLabV2.Export
                     currentFormatSettingsControl = new UserControl();
                     break;
                 case ImageFormatExportable.WEBP:
-                    currentFormatSettingsControl = new UserControl();
+                    currentFormatSettingsControl = webpControl;
                     break;
                 case ImageFormatExportable.TIFF:
                     currentFormatSettingsControl = new UserControl();
