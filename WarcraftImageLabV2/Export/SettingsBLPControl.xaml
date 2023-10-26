@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="WarcraftImageLabV2.Export.SettingsBLPControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WarcraftImageLabV2.Export"
+             mc:Ignorable="d" Height="auto" Width="auto">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox
+            x:Name="comboboxBlpType" SelectionChanged="comboboxBlpType_SelectionChanged"
+        />
+
+        <TextBlock
+            Grid.Row="1"
+            x:Name="textblockQuality"
+            Text="Image Quality:"
+            Margin="0,10,0,10"
+        />
+        <Slider
+            Grid.Row="2"
+            x:Name="sliderQuality"
+            Width="auto"
+            TickFrequency="1"
+            Minimum="1"
+            Maximum="100"
+            IsSnapToTickEnabled="True"
+            Margin="0,0,20,0" ValueChanged="sliderQuality_ValueChanged"
+        />
+        <TextBlock
+            Grid.Row="1"
+            x:Name="textblockPalette"
+            Text="Color Palette:"
+            Margin="0,10,0,10"
+        />
+        <Slider
+            Grid.Row="2"
+            x:Name="sliderPalette"
+            Width="auto"
+            TickFrequency="1"
+            Minimum="1"
+            Maximum="256"
+            IsSnapToTickEnabled="True"
+            Margin="0,0,20,0" ValueChanged="sliderPalette_ValueChanged"
+        />
+        <TextBlock
+            x:Name="textblockQualityNumber"
+            Grid.Column="1"
+            Grid.Row="2"
+        />
+
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="3"
+            Margin="0,10,0,0"
+            >
+
+            <TextBlock
+                Text="Mipmap Count:"
+            />
+            <TextBox
+                x:Name="textboxMipmapCount"
+                Width="50"
+                Margin="5,0,0,0" TextChanged="textboxMipmapCount_TextChanged"
+            />
+        </StackPanel>
+
+    </Grid>
+</UserControl>

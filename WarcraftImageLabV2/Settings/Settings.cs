@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WarcraftImageLabV2.ImageProcessing.ImageSettings;
+using WarcraftImageLabV2.ImageProcessing.Enums;
 
 namespace WarcraftImageLabV2
 {
@@ -49,6 +49,14 @@ namespace WarcraftImageLabV2
         public CompressionDDS CompressionDDS = CompressionDDS.BC1;
         public QualityDDS QualityDDS = QualityDDS.Balanced;
         public bool GenerateMipmapsDDS = true;
+        public BlpType BlpType = BlpType.Compressed;
+        public int BlpQuality = 80;
+        public int BlpPalettedColors = 256;
+        public bool BlpMergeHeaders = true;
+        public bool BlpProgressiveEncoding = false;
+        public bool BlpCompressPalette = true;
+        public bool BlpErrorDiffusion = false;
+        public int BlpMipmapCount = 1;
 
         public bool KeepFilename = false;
 

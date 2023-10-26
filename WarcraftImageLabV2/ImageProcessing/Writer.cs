@@ -10,13 +10,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WarcraftImageLabV2.ImageProcessing.ImageSettings;
 using WarcraftImageLabV2.ImageProcessing.Read;
-using ImageFormat = WarcraftImageLabV2.ImageProcessing.ImageSettings.ImageFormat;
 using BCnEncoder.Encoder;
 using BCnEncoder.Shared;
 using System.Windows.Media.Imaging;
 using System.Windows.Markup;
+using WarcraftImageLabV2.ImageProcessing.Enums;
+using ImageFormat = WarcraftImageLabV2.ImageProcessing.Enums.ImageFormat;
 
 namespace WarcraftImageLabV2.ImageProcessing
 {
@@ -27,16 +27,16 @@ namespace WarcraftImageLabV2.ImageProcessing
         public event Action<string> OnFileConverted;
         public event Action OnComplete;
 
+        private Settings settings;
         private string outputFileName;
         private string outputDir;
         private string[] fullPaths;
         private bool keepFilenames;
         private bool cancel;
 
-        ImageCodecInfo jpgEncoder;
-        EncoderParameters encoderParameters;
-        BcEncoder bcEncoder;
-        int webpQuality;
+        private ImageCodecInfo jpgEncoder;
+        private EncoderParameters encoderParameters;
+        private BcEncoder bcEncoder;
 
         /// <param name="outputFileName">File name. Not full output path.</param>
         /// <param name="fullPaths"></param>
@@ -46,7 +46,7 @@ namespace WarcraftImageLabV2.ImageProcessing
             this.fullPaths = fullPaths;
             this.outputDir = outputDir;
 
-            Settings settings = Settings.Load();
+            settings = Settings.Load();
             keepFilenames = settings.KeepFilename;
 
             #region JPEG encoder
@@ -106,9 +106,6 @@ namespace WarcraftImageLabV2.ImageProcessing
             }
             #endregion
 
-            #region WebP encoder
-            webpQuality = settings.QualityWebP;
-            #endregion
         }
 
         public void Cancel()
@@ -234,7 +231,7 @@ namespace WarcraftImageLabV2.ImageProcessing
         {
             using (WebP webp = new WebP())
             {
-                webp.Save(imageToConvert, outputPath, webpQuality);
+                webp.Save(imageToConvert, outputPath, settings.QualityWebP);
             }
         }
 
@@ -258,7 +255,28 @@ namespace WarcraftImageLabV2.ImageProcessing
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.CreateNoWindow = true;
             startInfo.FileName = blpPath;
-            startInfo.Arguments = $"\"{tmpPath}\" \"{outputPath}\" -type0 -q1 -mm11 -opt1 -opt2";
+
+            int type = (int)settings.BlpType;
+            int q = settings.BlpType == BlpType.Compressed ? settings.BlpQuality : settings.BlpPalettedColors;
+            int mm = settings.BlpMipmapCount;
+            string opt1 = string.Empty;
+            string opt2 = string.Empty;
+            if(
+                (settings.BlpType == BlpType.Compressed && settings.BlpMergeHeaders) ||
+                (settings.BlpType == BlpType.Paletted && settings.BlpCompressPalette)
+                )
+            {
+                opt1 = "-opt1";
+            }
+            if(
+                (settings.BlpType == BlpType.Compressed && settings.BlpProgressiveEncoding) ||
+                (settings.BlpType == BlpType.Paletted && settings.BlpErrorDiffusion)
+                )
+            {
+                opt2 = "-opt2";
+            }
+
+            startInfo.Arguments = $"\"{tmpPath}\" \"{outputPath}\" -type{type} -q{q} -mm{mm} {opt1} {opt2}";
             p.StartInfo = startInfo;
             p.Start();
             p.WaitForExit();
@@ -358,8 +376,8 @@ namespace WarcraftImageLabV2.ImageProcessing
                     }
                     System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
                     EncoderParameters parameters = new EncoderParameters(1);
-                    int q = 100;
-                    var encoderParameter = new EncoderParameter(myEncoder, q);
+                    int quality = 100;
+                    var encoderParameter = new EncoderParameter(myEncoder, quality);
                     parameters.Param[0] = encoderParameter;
 
                     Stream stream = new MemoryStream();

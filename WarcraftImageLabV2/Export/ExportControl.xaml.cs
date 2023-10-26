@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WarcraftImageLabV2.ImageProcessing.ImageSettings;
+using WarcraftImageLabV2.ImageProcessing.Enums;
 
 namespace WarcraftImageLabV2.Export
 {
@@ -42,6 +42,7 @@ namespace WarcraftImageLabV2.Export
             }
             comboboxFormat.SelectedIndex = (int)settings.ImageFormat;
             checkBoxKeepFilename.IsChecked = settings.KeepFilename;
+            textboxFilename.IsEnabled = !settings.KeepFilename;
         }
 
         private void EnableExportButton()
@@ -84,7 +85,7 @@ namespace WarcraftImageLabV2.Export
                     currentFormatSettingsControl = ddsControl;
                     break;
                 case ImageFormatExportable.BLP:
-                    currentFormatSettingsControl = new UserControl();
+                    currentFormatSettingsControl = blpControl;
                     break;
                 case ImageFormatExportable.TGA:
                     currentFormatSettingsControl = new UserControl();

@@ -1,4 +1,4 @@
-﻿namespace WarcraftImageLabV2.ImageProcessing.ImageSettings
+﻿namespace WarcraftImageLabV2.ImageProcessing.Enums
 {
     public enum ImageFormat
     {

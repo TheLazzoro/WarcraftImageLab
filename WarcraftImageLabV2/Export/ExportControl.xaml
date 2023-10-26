@@ -132,6 +132,14 @@
                     Grid.RowSpan="4"
                     Visibility="Hidden"
                 />
+                <local:SettingsBLPControl
+                    x:Name="blpControl"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    Grid.RowSpan="4"
+                    Visibility="Hidden"
+                />
 
             </Grid>
             

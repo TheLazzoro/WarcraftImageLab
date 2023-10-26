@@ -109,6 +109,9 @@
     <Compile Update="Dialogs\MessageWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Export\SettingsBLPControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Export\SettingsWebPControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

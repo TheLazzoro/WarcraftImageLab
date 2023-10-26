@@ -67,8 +67,8 @@ namespace WarcraftImageLabV2.ImageProcessing
 
             bool notReforgedCompatible =
                 settings.BorderMode == BorderModeEnum.Reforged &&
-                source.Width != 64 &&
-                source.Height != 64;
+                source.Width != 222 &&
+                source.Height != 222;
 
             if (isNone || notClassicCompatible || notReforgedCompatible)
             {

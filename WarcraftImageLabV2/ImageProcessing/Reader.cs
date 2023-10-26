@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using War3Net.Drawing.Blp;
-using ImageFormat = WarcraftImageLabV2.ImageProcessing.ImageSettings.ImageFormat;
+using ImageFormat = WarcraftImageLabV2.ImageProcessing.Enums.ImageFormat;
 
 namespace WarcraftImageLabV2.ImageProcessing.Read
 {
