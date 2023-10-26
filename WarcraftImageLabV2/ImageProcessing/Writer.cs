@@ -30,7 +30,7 @@ namespace WarcraftImageLabV2.ImageProcessing
         private Settings settings;
         private string outputFileName;
         private string outputDir;
-        private string[] fullPaths;
+        private string[] files;
         private bool keepFilenames;
         private bool cancel;
 
@@ -39,11 +39,11 @@ namespace WarcraftImageLabV2.ImageProcessing
         private BcEncoder bcEncoder;
 
         /// <param name="outputFileName">File name. Not full output path.</param>
-        /// <param name="fullPaths"></param>
-        public Writer(string outputFileName, string outputDir, string[] fullPaths)
+        /// <param name="files"></param>
+        public Writer(string outputFileName, string outputDir, string[] files)
         {
             this.outputFileName = outputFileName;
-            this.fullPaths = fullPaths;
+            this.files = files;
             this.outputDir = outputDir;
 
             settings = Settings.Load();
@@ -118,12 +118,12 @@ namespace WarcraftImageLabV2.ImageProcessing
             Settings settings = Settings.Load();
             string extension = "." + settings.ImageFormat.ToString().ToLower();
             ImageFormat format;
-            for (int i = 0; i < fullPaths.Length; i++)
+            for (int i = 0; i < files.Length; i++)
             {
                 if (cancel)
                     break;
 
-                string fullPath = fullPaths[i];
+                string fullPath = files[i];
                 string outputFileName = this.outputFileName;
                 if(keepFilenames)
                 {

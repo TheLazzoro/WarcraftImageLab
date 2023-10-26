@@ -34,6 +34,8 @@ namespace WarcraftImageLabV2
             this.Top = settings.WindowY;
             this.Width = settings.WindowWidth;
             this.Height = settings.WindowHeight;
+
+            ChangeTab(Model.TabMenuEnum.Import, btnTabImport);
         }
 
         /// <summary>
@@ -47,17 +49,31 @@ namespace WarcraftImageLabV2
 
         private void btnTabImport_Click(object sender, RoutedEventArgs e)
         {
-            mainControl.ChangeTab(Model.TabMenuEnum.Import);
+            ChangeTab(Model.TabMenuEnum.Import, (Button)e.Source);
         }
 
         private void btnTabFilters_Click(object sender, RoutedEventArgs e)
         {
-            mainControl.ChangeTab(Model.TabMenuEnum.Filters);
+            ChangeTab(Model.TabMenuEnum.Filters, (Button)e.Source);
         }
 
         private void btnTabExport_Click(object sender, RoutedEventArgs e)
         {
-            mainControl.ChangeTab(Model.TabMenuEnum.Export);
+            ChangeTab(Model.TabMenuEnum.Export, (Button)e.Source);
+        }
+
+        private void ChangeTab(Model.TabMenuEnum tab, Button selected)
+        {
+            mainControl.ChangeTab(tab);
+
+            Style style = this.FindResource("btnMenu") as Style;
+            Style styleSelected = this.FindResource("btnOrange") as Style;
+
+            btnTabImport.Style = style;
+            btnTabExport.Style = style;
+            btnTabFilters.Style = style;
+
+            selected.Style = styleSelected;
         }
 
         private void Window_Drop(object sender, DragEventArgs e)
