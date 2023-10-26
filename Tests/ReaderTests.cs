@@ -1,19 +1,21 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WarcraftImageLabV2.ImageProcessing.Read;
 
 namespace Tests
 {
+    [TestClass]
     public class ReaderTests
     {
-        [Theory]
-        [InlineData("6bf_blackrock_nova.blp")]
-        [InlineData("ATCABTNCurse2.blp")]
-        [InlineData("ATCCircleofRenewal.blp")]
-        [InlineData("city_cliffdirt.dds")]
-        [InlineData("ImageToConvert.png")]
-        [InlineData("LivingBomb.png")]
-        [InlineData("paladin-04e740dbc5882a8d358d086a88c960d18ac79c2a0583ad5843c1735e10eff231.svg")]
-        [InlineData("Power.jpg")]
-        [InlineData("RAW_CANON_1DM2.CR2")]
+        [DataTestMethod]
+        [DataRow("6bf_blackrock_nova.blp")]
+        [DataRow("ATCABTNCurse2.blp")]
+        [DataRow("ATCCircleofRenewal.blp")]
+        [DataRow("city_cliffdirt.dds")]
+        [DataRow("ImageToConvert.png")]
+        [DataRow("LivingBomb.png")]
+        [DataRow("paladin-04e740dbc5882a8d358d086a88c960d18ac79c2a0583ad5843c1735e10eff231.svg")]
+        [DataRow("Power.jpg")]
+        [DataRow("RAW_CANON_1DM2.CR2")]
         public void ReadImages(string fileName)
         {
             string dir = Path.Combine(Directory.GetCurrentDirectory(), "TestImages");
@@ -21,13 +23,13 @@ namespace Tests
             Reader.ReadImageFile(fullPath);
         }
 
-        [Fact]
+        [TestMethod]
         public void ReadNonImage()
         {
             string dir = Path.Combine(Directory.GetCurrentDirectory(), "TestImages");
             string fullPath = Path.Combine(dir, "notAnImage.txt");
 
-            Assert.Throws<ArgumentException>(() => Reader.ReadImageFile(fullPath));
+            Assert.ThrowsException<ArgumentException>(() => Reader.ReadImageFile(fullPath));
         }
     }
 }
