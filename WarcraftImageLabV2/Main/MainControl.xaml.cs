@@ -2,27 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WarcraftImageLabV2.Dialogs;
 using WarcraftImageLabV2.Export;
 using WarcraftImageLabV2.Filters;
-using WarcraftImageLabV2.ImageProcessing;
 using WarcraftImageLabV2.Import;
 using WarcraftImageLabV2.Model;
-using WarcraftImageLabV2.Preview;
 
 namespace WarcraftImageLabV2.Content
 {
@@ -245,11 +234,6 @@ namespace WarcraftImageLabV2.Content
             }
         }
 
-        private void menuConvert_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void menuOpenFileLocation_Click(object sender, RoutedEventArgs e)
         {
             int index = listViewFiles.SelectedIndex;
@@ -271,7 +255,6 @@ namespace WarcraftImageLabV2.Content
         private void listViewFiles_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             bool hasSelection = listViewFiles.SelectedItem != null;
-            menuConvert.IsEnabled = hasSelection;
             menuOpenFileLocation.IsEnabled = hasSelection;
             menuRemoveItem.IsEnabled = hasSelection;
         }

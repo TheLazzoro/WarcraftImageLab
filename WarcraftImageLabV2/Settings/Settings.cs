@@ -25,19 +25,31 @@ namespace WarcraftImageLabV2
 
         #region Filter settings
 
+        [JsonIgnore]
         public BorderModeEnum BorderMode = BorderModeEnum.None;
+        [JsonIgnore]
         public bool BorderBTN = false;
+        [JsonIgnore]
         public bool BorderPAS = false;
+        [JsonIgnore]
         public bool BorderATC = false;
+        [JsonIgnore]
         public bool BorderInfocard = false;
+        [JsonIgnore]
         public bool BorderInfocardUpgrade = false;
+        [JsonIgnore]
         public bool BorderDISBTN = false;
+        [JsonIgnore]
         public bool BorderDISPAS = false;
+        [JsonIgnore]
         public bool BorderDISATC = false;
 
+        [JsonIgnore]
         public bool Resize = false;
-        public int WidthNew = 4;
-        public int HeightNew = 4;
+        [JsonIgnore]
+        public int WidthNew = 16;
+        [JsonIgnore]
+        public int HeightNew = 16;
 
         #endregion
 

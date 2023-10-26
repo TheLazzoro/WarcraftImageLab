@@ -121,11 +121,17 @@
             <Setter Property="Background" Value="#444" />
         </Style>
 
+        <!-- CONTEXT MENU -->
+        <ItemsPanelTemplate x:Key="MenuItemPanelTemplate">
+            <StackPanel Margin="-2,0,0,0" Background="#444"/>
+        </ItemsPanelTemplate>
+
         <Style TargetType="ContextMenu">
             <Setter Property="Background" Value="#444" />
             <Setter Property="SnapsToDevicePixels" Value="True" />
             <Setter Property="HasDropShadow" Value="True" />
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="ItemsPanel" Value="{StaticResource MenuItemPanelTemplate}"/>
         </Style>
 
         <Style TargetType="{x:Type MenuItem}" x:Key="MenuItemCustom">
@@ -139,7 +145,7 @@
             </Style.Triggers>
         </Style>
 
-        <Style TargetType="TextBox">
+        <Style TargetType="TextBox" x:Key="TextBoxStyle">
             <Setter Property="Background" Value="#333" />
             <Setter Property="Foreground" Value="White" />
         </Style>

@@ -125,11 +125,11 @@ namespace WarcraftImageLabV2.ImageProcessing
 
                 string fullPath = files[i];
                 string outputFileName = this.outputFileName;
-                if(keepFilenames)
+                if (keepFilenames)
                 {
                     outputFileName = Path.GetFileNameWithoutExtension(fullPath);
                 }
-                
+
                 try
                 {
                     Bitmap image = Reader.ReadImageFile(fullPath);
@@ -140,13 +140,18 @@ namespace WarcraftImageLabV2.ImageProcessing
                         var processedImage = processedImages[j];
                         Bitmap imageToSave = processedImage.Image;
                         string fileName = string.Empty;
-                        if(keepFilenames)
+                        if (keepFilenames || files.Length == 1)
                             fileName = processedImage.FileName;
                         else
                             fileName = processedImage.FileName + progress;
 
                         string outputPath = Path.Combine(outputDir, fileName) + extension;
-                        Console.WriteLine(outputPath);
+
+                        if (File.Exists(outputPath))
+                        {
+                            OnError?.Invoke(outputPath, "File already exists.");
+                            continue;
+                        }
 
                         switch (settings.ImageFormat)
                         {
@@ -262,14 +267,14 @@ namespace WarcraftImageLabV2.ImageProcessing
             int mm = settings.BlpMipmapCount;
             string opt1 = string.Empty;
             string opt2 = string.Empty;
-            if(
+            if (
                 (settings.BlpType == BlpType.Compressed && settings.BlpMergeHeaders) ||
                 (settings.BlpType == BlpType.Paletted && settings.BlpCompressPalette)
                 )
             {
                 opt1 = "-opt1";
             }
-            if(
+            if (
                 (settings.BlpType == BlpType.Compressed && settings.BlpProgressiveEncoding) ||
                 (settings.BlpType == BlpType.Paletted && settings.BlpErrorDiffusion)
                 )

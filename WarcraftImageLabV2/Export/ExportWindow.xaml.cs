@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WarcraftImageLabV2.ImageProcessing;
 
 namespace WarcraftImageLabV2.Export
@@ -21,12 +10,21 @@ namespace WarcraftImageLabV2.Export
         private BackgroundWorker worker;
         private Writer writer;
         private int fileCount;
+        private ExportWindowViewModel viewModel;
+
+        private string outputDir;
 
         public ExportWindow(string outputFileName, string dir, string[] files)
         {
+            Owner = MainWindow.GetMainWindow();
+
             InitializeComponent();
 
+            viewModel = new ExportWindowViewModel();
+            this.DataContext = viewModel;
+
             fileCount = files.Length;
+            outputDir = dir;
 
             writer = new Writer(outputFileName, dir, files);
             writer.OnFileConverted += Writer_OnFileConverted;
@@ -53,35 +51,52 @@ namespace WarcraftImageLabV2.Export
             worker.ReportProgress(0);
         }
 
-        private void Writer_OnError(string arg1, string arg2)
+        private void Writer_OnError(string fullPath, string errorMsg)
         {
-            worker.ReportProgress(-1, arg1);
+            ListItemError error = new ListItemError(fullPath, errorMsg);
+            worker.ReportProgress(-1, error);
         }
 
         private void Writer_OnComplete()
         {
-            
+            worker.ReportProgress(100);
         }
 
         private void Worker_ProgressChanged(object? sender, ProgressChangedEventArgs e)
         {
+            if (fileCount == 0)
+                return;
+
             float percent = (float)writer.progress / fileCount * 100;
+            string textPercent = (int)percent + "%";
             progressBar.Value = percent;
             textblockProgress.Text = writer.progress + "/" + fileCount;
-            textblockPercent.Text = (int)percent + "%";
+            textblockPercent.Text = textPercent;
+            Title = "Exporting... " + textPercent;
 
             if (e.ProgressPercentage == -1)
             {
-                listViewErrors.Items.Add(new ListViewItem
-                {
-                    Content = e.UserState,
-                });
+                var error = (ListItemError)e.UserState;
+                viewModel.AddErrorToList(error);
             }
         }
 
         private void Worker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
         {
-            
+            btnStop.IsEnabled = false;
+            btnClose.IsEnabled = true;
+
+            textblockProgress.Text = writer.progress + "/" + fileCount;
+            if (writer.progress == fileCount)
+            {
+                textblockPercent.Text = "100%";
+                Title = "Complete!";
+            }
+        }
+
+        private void btnShowOutputFolder_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", outputDir);
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -89,5 +104,11 @@ namespace WarcraftImageLabV2.Export
             writer.Cancel();
             worker.CancelAsync();
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

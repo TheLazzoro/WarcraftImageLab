@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WarcraftImageLabV2.Content;
 using WarcraftImageLabV2.ImageProcessing.Enums;
 
 namespace WarcraftImageLabV2.Export
@@ -23,6 +24,7 @@ namespace WarcraftImageLabV2.Export
         private Settings settings;
         private UserControl emptySettingsControl;
         private UserControl currentFormatSettingsControl;
+        
         public ExportControl()
         {
             InitializeComponent();

@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarcraftImageLabV2.Export"
         mc:Ignorable="d"
-        Title="Exporting" Height="308" Width="555" Background="#323232">
+        Title="Exporting" Height="308" Width="555" Background="#323232" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="25"/>
-            <RowDefinition Height="179*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
@@ -32,20 +33,61 @@
             Grid.Row="1"
             Margin="5"
         />
-        <ListView
-            x:Name="listViewErrors"
-            Margin="5"
+        <TextBlock
+            Text="Errors:"
             Grid.Row="2"
+            Margin="6"
         />
         <Button
-            x:Name="btnStop"
+            x:Name="btnShowOutputFolder"
+            Content="Show Output Folder"
             Style="{StaticResource btnOrange}"
-            Content="Stop"
-            Grid.Row="3"
+            Width="150"
+            Grid.Row="2"
             HorizontalAlignment="Right"
-            Width="75"
-            Margin="5" Click="btnStop_Click"
+            Margin="0,0,5,0" Click="btnShowOutputFolder_Click"
         />
+        <ListView
+            x:Name="listViewErrors"
+            ItemsSource="{Binding FileItems}"
+            Margin="5"
+            Grid.Row="3"
+        >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="File" 
+                        Width="200"
+                        DisplayMemberBinding="{Binding FullPath}"
+                        />
+                    <GridViewColumn Header="Error message"
+                        Width="200"
+                        DisplayMemberBinding="{Binding ErrorMsg}"
+                        />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="4"
+            HorizontalAlignment="Right"
+            >
+            <Button
+                x:Name="btnStop"
+                Style="{StaticResource btnOrange}"
+                Content="Stop"
+                Width="75"
+                Margin="5"
+                Click="btnStop_Click"
+            />
+            <Button
+                x:Name="btnClose"
+                Style="{StaticResource btnOrange}"
+                Content="Close"
+                Width="75"
+                Margin="5"
+                IsEnabled="False" Click="btnClose_Click"
+            />
+        </StackPanel>
 
     </Grid>
 </Window>

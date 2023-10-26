@@ -18,12 +18,13 @@ namespace WarcraftImageLabV2.Filters
     public partial class FiltersControl : UserControl
     {
         public event Action OnFiltersChanged;
+        Settings settings;
 
         public FiltersControl()
         {
             InitializeComponent();
 
-            Settings settings = Settings.Load();
+            settings = Settings.Load();
             switch (settings.BorderMode)
             {
                 case BorderModeEnum.None:
@@ -49,81 +50,72 @@ namespace WarcraftImageLabV2.Filters
             checkDISPAS.IsChecked = settings.BorderDISPAS;
             checkDISATC.IsChecked = settings.BorderDISATC;
 
+            textboxWidth.Text = settings.WidthNew.ToString();
+            textboxHeight.Text = settings.HeightNew.ToString();
         }
 
         private void radBtnNone_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderMode = BorderModeEnum.None;
             OnFiltersChanged?.Invoke();
         }
 
         private void radBtnClassic_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderMode = BorderModeEnum.Classic;
             OnFiltersChanged?.Invoke();
         }
 
         private void radBtnReforged_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderMode = BorderModeEnum.Reforged;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkBTN_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderBTN = (bool)checkBTN.IsChecked;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkPAS_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderPAS = (bool)checkPAS.IsChecked;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkATC_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderATC = (bool)checkATC.IsChecked;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkInfocard_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderInfocard = (bool)checkInfocard.IsChecked;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkInfocardUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderInfocardUpgrade = (bool)checkInfocardUpgrade.IsChecked;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkDISBTN_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderDISBTN = (bool)checkDISBTN.IsChecked;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkDISPAS_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderDISPAS = (bool)checkDISPAS.IsChecked;
             OnFiltersChanged?.Invoke();
         }
 
         private void checkDISATC_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = Settings.Load();
             settings.BorderDISATC = (bool)checkDISATC.IsChecked;
             OnFiltersChanged?.Invoke();
         }
@@ -154,6 +146,32 @@ namespace WarcraftImageLabV2.Filters
             checkDISBTN.IsEnabled = doEnable;
             checkDISPAS.IsEnabled = doEnable;
             checkDISATC.IsEnabled = doEnable;
+        }
+
+        private void checkboxResize_Click(object sender, RoutedEventArgs e)
+        {
+            settings.Resize = (bool)checkboxResize.IsChecked;
+            textboxWidth.IsEnabled = (bool)checkboxResize.IsChecked;
+            textboxHeight.IsEnabled = (bool)checkboxResize.IsChecked;
+            OnFiltersChanged?.Invoke();
+        }
+
+        private void textboxWidth_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textboxWidth.Text))
+                return;
+
+            settings.WidthNew = int.Parse(textboxWidth.Text);
+            OnFiltersChanged?.Invoke();
+        }
+
+        private void textboxHeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textboxHeight.Text))
+                return;
+
+            settings.HeightNew = int.Parse(textboxHeight.Text);
+            OnFiltersChanged?.Invoke();
         }
     }
 }

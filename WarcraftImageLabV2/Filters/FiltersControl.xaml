@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WarcraftImageLabV2.Filters"
+             xmlns:customcomponents="clr-namespace:WarcraftImageLabV2.CustomComponents"
              mc:Ignorable="d" Height="auto" Width="auto">
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
         <GroupBox
@@ -61,12 +62,38 @@
 
             </Grid>
         </GroupBox>
+        <StackPanel
+                Orientation="Horizontal"
+                Grid.Row="2"
+                Margin="5"
+            VerticalAlignment="Center"
+            >
 
-        <TextBlock
-            Text="Resize"
-            Grid.Row="2"
-            Margin="5"
-        />
+            <CheckBox
+                x:Name="checkboxResize"
+                Content="Resize" Click="checkboxResize_Click"
+            />
+            <TextBlock
+                Margin="20,0,0,0"
+                Text="Width:"
+            />
+            <customcomponents:TextBoxInteger
+                x:Name="textboxWidth"
+                IsEnabled="False"
+                Width="40"
+                Margin="5,0,0,0" TextChanged="textboxWidth_TextChanged"
+            />
+            <TextBlock
+                Margin="20,0,0,0"
+                Text="Height:"
+            />
+            <customcomponents:TextBoxInteger
+                x:Name="textboxHeight"
+                IsEnabled="False"
+                Width="40"
+                Margin="5,0,0,0" TextChanged="textboxHeight_TextChanged"
+            />
+        </StackPanel>
 
     </Grid>
 </UserControl>

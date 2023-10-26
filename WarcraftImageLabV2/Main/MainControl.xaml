@@ -41,7 +41,6 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="menuConvert" Style="{StaticResource MenuItemCustom}" Header="Convert" Click="menuConvert_Click" />
                     <MenuItem x:Name="menuOpenFileLocation" Style="{StaticResource MenuItemCustom}" Header="Open File Location" Click="menuOpenFileLocation_Click" />
                     <MenuItem x:Name="menuRemoveItem" Style="{StaticResource MenuItemCustom}" Header="Remove" Click="menuRemoveItem_Click" />
                 </ContextMenu>
