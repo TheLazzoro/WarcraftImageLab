@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Windows.Media;
 using War3Net.Drawing.Blp;
 using ImageFormat = WarcraftImageLabV2.ImageProcessing.Enums.ImageFormat;
 
@@ -21,7 +22,13 @@ namespace WarcraftImageLabV2.ImageProcessing.Read
             Bitmap image;
 
             string extension = fullPath.Split('.').Last().ToUpper();
-            ImageFormat format = Enum.Parse<ImageFormat>(extension);
+            ImageFormat format;
+            bool validFile = Enum.TryParse(extension, out format);
+            if(!validFile)
+            {
+                throw new Exception($"Invalid image format '{extension}'");
+            }
+
             switch (format)
             {
                 case ImageFormat.JPG:

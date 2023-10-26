@@ -117,7 +117,6 @@ namespace WarcraftImageLabV2.ImageProcessing
         {
             Settings settings = Settings.Load();
             string extension = "." + settings.ImageFormat.ToString().ToLower();
-            ImageFormat format;
             for (int i = 0; i < files.Length; i++)
             {
                 if (cancel)

@@ -64,6 +64,7 @@ namespace WarcraftImageLabV2.Preview
         {
             textBlockError.Visibility = Visibility.Visible;
             textBlockError.Text = "Error: " + errorMsg;
+            image.Source = null;
         }
 
         private Point GetImageCoordsAt(MouseButtonEventArgs e)

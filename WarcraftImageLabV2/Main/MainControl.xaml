@@ -30,17 +30,19 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="File" 
-                                    Width="200"
+                                    Width="350"
+                                    
                                     DisplayMemberBinding="{Binding FileName}"
                                     />
                     <GridViewColumn Header="Size"
-                                    Width="200"
+                                    Width="100"
                                     DisplayMemberBinding="{Binding Size}"
                                     />
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
+                    <MenuItem x:Name="menuExport" Style="{StaticResource MenuItemCustom}" Header="Export" Click="menuExport_Click" />
                     <MenuItem x:Name="menuOpenFileLocation" Style="{StaticResource MenuItemCustom}" Header="Open File Location" Click="menuOpenFileLocation_Click" />
                     <MenuItem x:Name="menuRemoveItem" Style="{StaticResource MenuItemCustom}" Header="Remove" Click="menuRemoveItem_Click" />
                 </ContextMenu>

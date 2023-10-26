@@ -173,7 +173,6 @@ namespace WarcraftImageLabV2.Content
             }
             catch (Exception ex)
             {
-                previewControl.UpdateImage(null);
                 previewControl.SetErrorMessage(ex.Message);
             }
         }
@@ -232,6 +231,18 @@ namespace WarcraftImageLabV2.Content
                 suppressSelection = false;
                 SelectNearestItemAt(index);
             }
+        }
+
+        private void menuExport_Click(object sender, RoutedEventArgs e)
+        {
+            int index = listViewFiles.SelectedIndex;
+            var item = viewModel.FileItems[index];
+            string fileName = exportControl.textboxFilename.Text;
+            string dir = exportControl.textblockOutputDir.Text;
+            string[] files = new string[] { item.FullPath };
+
+            ExportWindow exportWindow = new ExportWindow(fileName, dir, files);
+            exportWindow.ShowDialog();
         }
 
         private void menuOpenFileLocation_Click(object sender, RoutedEventArgs e)
