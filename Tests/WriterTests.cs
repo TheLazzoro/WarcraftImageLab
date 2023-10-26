@@ -53,7 +53,6 @@ namespace Tests
             Writer writer = new Writer(fileName, outputDir, files);
             writer.Write();
             string expectedPath = Path.Combine(outputDir, fileName) + extension;
-            Console.WriteLine(expectedPath);
             Bitmap image = Reader.ReadImageFile(expectedPath);
 
             Assert.IsTrue(File.Exists(expectedPath));

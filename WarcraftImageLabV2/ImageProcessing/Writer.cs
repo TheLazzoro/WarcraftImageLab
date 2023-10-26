@@ -146,6 +146,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                             fileName = processedImage.FileName + progress;
 
                         string outputPath = Path.Combine(outputDir, fileName) + extension;
+                        Console.WriteLine(outputPath);
 
                         switch (settings.ImageFormat)
                         {
