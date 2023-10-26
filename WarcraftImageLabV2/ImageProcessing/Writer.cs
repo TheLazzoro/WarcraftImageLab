@@ -16,6 +16,7 @@ using ImageFormat = WarcraftImageLabV2.ImageProcessing.ImageSettings.ImageFormat
 using BCnEncoder.Encoder;
 using BCnEncoder.Shared;
 using System.Windows.Media.Imaging;
+using System.Windows.Markup;
 
 namespace WarcraftImageLabV2.ImageProcessing
 {
@@ -23,12 +24,14 @@ namespace WarcraftImageLabV2.ImageProcessing
     {
         public int progress { get; private set; } = 0;
         public event Action<string, string> OnError;
-        public event Action<string> OnSuccess;
+        public event Action<string> OnFileConverted;
         public event Action OnComplete;
 
         private string outputFileName;
         private string outputDir;
         private string[] fullPaths;
+        private bool keepFilenames;
+        private bool cancel;
 
         ImageCodecInfo jpgEncoder;
         EncoderParameters encoderParameters;
@@ -44,6 +47,7 @@ namespace WarcraftImageLabV2.ImageProcessing
             this.outputDir = outputDir;
 
             Settings settings = Settings.Load();
+            keepFilenames = settings.KeepFilename;
 
             #region JPEG encoder
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
@@ -107,14 +111,28 @@ namespace WarcraftImageLabV2.ImageProcessing
             #endregion
         }
 
+        public void Cancel()
+        {
+            cancel = true;
+        }
+
         public void Write()
         {
             Settings settings = Settings.Load();
+            string extension = "." + settings.ImageFormat.ToString().ToLower();
             ImageFormat format;
             for (int i = 0; i < fullPaths.Length; i++)
             {
-                string fullPath = fullPaths[i];
+                if (cancel)
+                    break;
 
+                string fullPath = fullPaths[i];
+                string outputFileName = this.outputFileName;
+                if(keepFilenames)
+                {
+                    outputFileName = Path.GetFileNameWithoutExtension(fullPath);
+                }
+                
                 try
                 {
                     Bitmap image = Reader.ReadImageFile(fullPath);
@@ -122,9 +140,15 @@ namespace WarcraftImageLabV2.ImageProcessing
                     var processedImages = processor.ApplyFilters(image);
                     for (int j = 0; j < processedImages.Count; j++)
                     {
-                        var processedImage = processedImages[i];
+                        var processedImage = processedImages[j];
                         Bitmap imageToSave = processedImage.Image;
-                        string outputPath = Path.Combine(outputDir, processedImage.FileName);
+                        string fileName = string.Empty;
+                        if(keepFilenames)
+                            fileName = processedImage.FileName;
+                        else
+                            fileName = processedImage.FileName + progress;
+
+                        string outputPath = Path.Combine(outputDir, fileName) + extension;
 
                         switch (settings.ImageFormat)
                         {
@@ -154,7 +178,7 @@ namespace WarcraftImageLabV2.ImageProcessing
                                 break;
                         }
 
-                        OnSuccess?.Invoke(fullPath);
+                        OnFileConverted?.Invoke(fullPath);
                     }
                 }
                 catch (Exception ex)
@@ -229,10 +253,10 @@ namespace WarcraftImageLabV2.ImageProcessing
             string tmpPath = Directory.GetCurrentDirectory() + "/tmpFile.tga";
             WriteTga(imageToConvert, tmpPath);
 
-            string blpPath = Path.Combine(Directory.GetCurrentDirectory(), "BLPLAB/blplabcl.exe");
+            string blpPath = Path.Combine(Directory.GetCurrentDirectory(), "Resources/BLPLAB/blplabcl.exe");
             Process p = new Process();
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.CreateNoWindow = false;
+            startInfo.CreateNoWindow = true;
             startInfo.FileName = blpPath;
             startInfo.Arguments = $"\"{tmpPath}\" \"{outputPath}\" -type0 -q1 -mm11 -opt1 -opt2";
             p.StartInfo = startInfo;

@@ -18,10 +18,11 @@ namespace WarcraftImageLabV2.Export
 {
     public partial class ExportControl : UserControl
     {
+        public event Action OnExport;
+
         private Settings settings;
         private UserControl emptySettingsControl;
         private UserControl currentFormatSettingsControl;
-
         public ExportControl()
         {
             InitializeComponent();
@@ -111,7 +112,7 @@ namespace WarcraftImageLabV2.Export
 
         private void btnExportAll_Click(object sender, RoutedEventArgs e)
         {
-
+            OnExport?.Invoke();
         }
     }
 }

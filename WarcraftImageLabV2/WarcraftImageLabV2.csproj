@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\BLPLAB\blplabcl.exe" />
+    <None Remove="Resources\BLPLAB\blplabcl.txt" />
+    <None Remove="Resources\BLPLAB\swdn_blp.dll" />
     <None Remove="Resources\drag.png" />
     <None Remove="Resources\drag2.png" />
     <None Remove="Resources\Icon_Border.png" />
@@ -29,6 +32,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\BLPLAB\blplabcl.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\BLPLAB\blplabcl.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\BLPLAB\swdn_blp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\drag.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

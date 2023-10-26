@@ -58,10 +58,10 @@ namespace WarcraftImageLabV2.Content
             importControl.OnClickImportFile += ImportControl_OnClickImportFile;
             importControl.OnClickImportFolder += ImportControl_OnClickImportFolder;
             filtersControl.OnFiltersChanged += FiltersControl_OnFiltersChanged;
+            exportControl.OnExport += ExportControl_OnExport;
             viewModel.FileItems.CollectionChanged += FileItems_CollectionChanged;
 
         }
-
 
         public void ChangeTab(TabMenuEnum tabToShow)
         {
@@ -187,6 +187,16 @@ namespace WarcraftImageLabV2.Content
                 previewControl.UpdateImage(null);
                 previewControl.SetErrorMessage(ex.Message);
             }
+        }
+
+        private void ExportControl_OnExport()
+        {
+            string outputFileName = exportControl.textboxFilename.Text;
+            string outputDir = exportControl.textblockOutputDir.Text;
+            string[] files = viewModel.FileItems.Select(f => f.FullPath).ToArray();
+
+            ExportWindow exportWindow = new ExportWindow(outputFileName, outputDir, files);
+            exportWindow.ShowDialog();
         }
 
         private void SelectNearestItemAt(int index)
