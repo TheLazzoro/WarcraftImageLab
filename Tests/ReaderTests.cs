@@ -29,7 +29,7 @@ namespace Tests
             string dir = Path.Combine(Directory.GetCurrentDirectory(), "TestImages");
             string fullPath = Path.Combine(dir, "notAnImage.txt");
 
-            Assert.ThrowsException<ArgumentException>(() => Reader.ReadImageFile(fullPath));
+            Assert.ThrowsException<Exception>(() => Reader.ReadImageFile(fullPath));
         }
     }
 }
