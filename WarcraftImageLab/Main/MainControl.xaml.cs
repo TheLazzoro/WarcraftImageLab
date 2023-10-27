@@ -7,13 +7,13 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WarcraftImageLabV2.Dialogs;
-using WarcraftImageLabV2.Export;
-using WarcraftImageLabV2.Filters;
-using WarcraftImageLabV2.Import;
-using WarcraftImageLabV2.Model;
+using WarcraftImageLab.Dialogs;
+using WarcraftImageLab.Export;
+using WarcraftImageLab.Filters;
+using WarcraftImageLab.Import;
+using WarcraftImageLab.Model;
 
-namespace WarcraftImageLabV2.Content
+namespace WarcraftImageLab.Content
 {
     public partial class MainControl : UserControl
     {

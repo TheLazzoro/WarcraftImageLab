@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WarcraftImageLabV2.Import
+namespace WarcraftImageLab.Import
 {
     public partial class ImportControl : UserControl
     {

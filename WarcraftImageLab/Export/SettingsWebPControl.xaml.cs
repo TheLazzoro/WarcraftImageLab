@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WarcraftImageLabV2.Export
+namespace WarcraftImageLab.Export
 {
     public partial class SettingsWebPControl : UserControl
     {

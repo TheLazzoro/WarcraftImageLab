@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 
-namespace WarcraftImageLabV2.ImageProcessing
+namespace WarcraftImageLab.ImageProcessing
 {
     internal class Processor
     {

@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="WarcraftImageLabV2.Content.MainControl"
+﻿<UserControl x:Class="WarcraftImageLab.Content.MainControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WarcraftImageLabV2.Content"
-             xmlns:import="clr-namespace:WarcraftImageLabV2.Import" 
-             xmlns:preview="clr-namespace:WarcraftImageLabV2.Preview"
+             xmlns:local="clr-namespace:WarcraftImageLab.Content"
+             xmlns:import="clr-namespace:WarcraftImageLab.Import" 
+             xmlns:preview="clr-namespace:WarcraftImageLab.Preview"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="#4B4B4B">
     <Grid x:Name="grid">

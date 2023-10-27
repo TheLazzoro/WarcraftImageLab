@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WarcraftImageLabV2.Export
+namespace WarcraftImageLab.Export
 {
     public class ListItemError
     {

@@ -9,9 +9,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Media;
 using War3Net.Drawing.Blp;
-using ImageFormat = WarcraftImageLabV2.ImageProcessing.Enums.ImageFormat;
+using ImageFormat = WarcraftImageLab.ImageProcessing.Enums.ImageFormat;
 
-namespace WarcraftImageLabV2.ImageProcessing.Read
+namespace WarcraftImageLab.ImageProcessing.Read
 {
     public static class Reader
     {

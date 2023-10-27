@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WarcraftImageLabV2.ImageProcessing
+namespace WarcraftImageLab.ImageProcessing
 {
     public class ProcessedImage
     {

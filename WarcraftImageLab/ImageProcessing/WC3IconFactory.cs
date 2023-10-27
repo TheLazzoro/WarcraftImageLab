@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WarcraftImageLabV2.ImageProcessing
+namespace WarcraftImageLab.ImageProcessing
 {
     internal class WC3IconFactory
     {

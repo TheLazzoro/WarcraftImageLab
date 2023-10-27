@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace WarcraftImageLabV2.CustomComponents
+namespace WarcraftImageLab.CustomComponents
 {
     public class TextBoxInteger : TextBox
     {

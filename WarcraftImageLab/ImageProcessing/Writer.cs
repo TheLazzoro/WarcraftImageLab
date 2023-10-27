@@ -10,15 +10,15 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WarcraftImageLabV2.ImageProcessing.Read;
+using WarcraftImageLab.ImageProcessing.Read;
 using BCnEncoder.Encoder;
 using BCnEncoder.Shared;
 using System.Windows.Media.Imaging;
 using System.Windows.Markup;
-using WarcraftImageLabV2.ImageProcessing.Enums;
-using ImageFormat = WarcraftImageLabV2.ImageProcessing.Enums.ImageFormat;
+using WarcraftImageLab.ImageProcessing.Enums;
+using ImageFormat = WarcraftImageLab.ImageProcessing.Enums.ImageFormat;
 
-namespace WarcraftImageLabV2.ImageProcessing
+namespace WarcraftImageLab.ImageProcessing
 {
     public class Writer
     {

@@ -28,7 +28,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace WarcraftImageLabV2.ImageProcessing
+namespace WarcraftImageLab.ImageProcessing
 {
     public sealed class WebP : IDisposable
     {

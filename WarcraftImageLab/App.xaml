@@ -1,7 +1,7 @@
-﻿<Application x:Class="WarcraftImageLabV2.App"
+﻿<Application x:Class="WarcraftImageLab.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WarcraftImageLabV2"
+             xmlns:local="clr-namespace:WarcraftImageLab"
              DispatcherUnhandledException="Application_DispatcherUnhandledException"
              StartupUri="MainWindow.xaml">
     <Application.Resources>

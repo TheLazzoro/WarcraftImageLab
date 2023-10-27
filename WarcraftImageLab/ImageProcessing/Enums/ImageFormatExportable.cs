@@ -1,4 +1,4 @@
-﻿namespace WarcraftImageLabV2.ImageProcessing.Enums
+﻿namespace WarcraftImageLab.ImageProcessing.Enums
 {
     public enum ImageFormatExportable
     {

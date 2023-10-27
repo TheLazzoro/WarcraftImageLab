@@ -7,9 +7,9 @@ using System.Linq;
 using System.Media;
 using System.Threading.Tasks;
 using System.Windows;
-using WarcraftImageLabV2.Dialogs;
+using WarcraftImageLab.Dialogs;
 
-namespace WarcraftImageLabV2
+namespace WarcraftImageLab
 {
     /// <summary>
     /// Interaction logic for App.xaml

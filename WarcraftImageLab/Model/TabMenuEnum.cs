@@ -1,4 +1,4 @@
-﻿namespace WarcraftImageLabV2.Model
+﻿namespace WarcraftImageLab.Model
 {
     public enum TabMenuEnum
     {

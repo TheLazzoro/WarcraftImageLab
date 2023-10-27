@@ -1,10 +1,10 @@
-﻿<Window x:Class="WarcraftImageLabV2.MainWindow"
+﻿<Window x:Class="WarcraftImageLab.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WarcraftImageLabV2"
-        xmlns:import="clr-namespace:WarcraftImageLabV2.Import" xmlns:content="clr-namespace:WarcraftImageLabV2.Content"
+        xmlns:local="clr-namespace:WarcraftImageLab"
+        xmlns:import="clr-namespace:WarcraftImageLab.Import" xmlns:content="clr-namespace:WarcraftImageLab.Content"
         mc:Ignorable="d"
         Title="Warcraft Image Lab" Height="450" Width="800" Background="#323232" Drop="Window_Drop" AllowDrop="True" Closing="Window_Closing">
     <Grid x:Name="grid">

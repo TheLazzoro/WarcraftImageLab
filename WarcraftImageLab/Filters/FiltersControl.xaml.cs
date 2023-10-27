@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WarcraftImageLabV2.Filters
+namespace WarcraftImageLab.Filters
 {
     public partial class FiltersControl : UserControl
     {

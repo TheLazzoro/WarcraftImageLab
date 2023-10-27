@@ -5,10 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WarcraftImageLabV2.Model;
-using WarcraftImageLabV2.Utility;
+using WarcraftImageLab.Model;
+using WarcraftImageLab.Utility;
 
-namespace WarcraftImageLabV2.Content
+namespace WarcraftImageLab.Content
 {
     internal class MainControlViewModel : ViewModelBase
     {

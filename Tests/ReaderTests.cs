@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WarcraftImageLabV2.ImageProcessing.Read;
+using WarcraftImageLab.ImageProcessing.Read;
 
 namespace Tests
 {

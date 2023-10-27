@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WarcraftImageLabV2.ImageProcessing.Enums;
+using WarcraftImageLab.ImageProcessing.Enums;
 
-namespace WarcraftImageLabV2
+namespace WarcraftImageLab
 {
     public class Settings
     {

@@ -1,4 +1,4 @@
-﻿namespace WarcraftImageLabV2
+﻿namespace WarcraftImageLab
 {
     public enum BorderModeEnum
     {

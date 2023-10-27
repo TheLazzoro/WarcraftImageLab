@@ -13,12 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WarcraftImageLabV2.ImageProcessing;
-using WarcraftImageLabV2.ImageProcessing.Read;
+using WarcraftImageLab.ImageProcessing;
+using WarcraftImageLab.ImageProcessing.Read;
 using Color = System.Windows.Media.Color;
 using Point = System.Windows.Point;
 
-namespace WarcraftImageLabV2.Preview
+namespace WarcraftImageLab.Preview
 {
     public partial class PreviewControl : UserControl
     {

@@ -71,6 +71,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WarcraftImageLabV2\WarcraftImageLabV2.csproj" />
+    <ProjectReference Include="..\WarcraftImageLab\WarcraftImageLab.csproj" />
   </ItemGroup>
 
 </Project>

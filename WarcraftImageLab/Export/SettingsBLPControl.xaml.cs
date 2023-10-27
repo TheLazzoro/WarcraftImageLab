@@ -13,9 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WarcraftImageLabV2.ImageProcessing.Enums;
+using WarcraftImageLab.ImageProcessing.Enums;
 
-namespace WarcraftImageLabV2.Export
+namespace WarcraftImageLab.Export
 {
     public partial class SettingsBLPControl : UserControl
     {

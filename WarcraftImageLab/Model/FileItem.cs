@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace WarcraftImageLabV2.Model
+namespace WarcraftImageLab.Model
 {
     internal class FileItem
     {

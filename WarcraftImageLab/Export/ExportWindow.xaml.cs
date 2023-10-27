@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
-using WarcraftImageLabV2.ImageProcessing;
+using WarcraftImageLab.ImageProcessing;
 
-namespace WarcraftImageLabV2.Export
+namespace WarcraftImageLab.Export
 {
     public partial class ExportWindow : Window
     {

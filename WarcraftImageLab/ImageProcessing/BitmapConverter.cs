@@ -13,7 +13,7 @@ using System.Windows;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace WarcraftImageLabV2.ImageProcessing
+namespace WarcraftImageLab.ImageProcessing
 {
     internal class BitmapConverter
     {
