@@ -56,18 +56,21 @@ namespace WarcraftImageLabV2.Filters
 
         private void radBtnNone_Click(object sender, RoutedEventArgs e)
         {
+            textblockMessage.Text = "";
             settings.BorderMode = BorderModeEnum.None;
             OnFiltersChanged?.Invoke();
         }
 
         private void radBtnClassic_Click(object sender, RoutedEventArgs e)
         {
+            textblockMessage.Text = "Only applies to 64x64 images.";
             settings.BorderMode = BorderModeEnum.Classic;
             OnFiltersChanged?.Invoke();
         }
 
         private void radBtnReforged_Click(object sender, RoutedEventArgs e)
         {
+            textblockMessage.Text = "Only applies to 256x256 images.";
             settings.BorderMode = BorderModeEnum.Reforged;
             OnFiltersChanged?.Invoke();
         }

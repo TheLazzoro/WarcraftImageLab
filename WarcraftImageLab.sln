@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarcraftImageLabV2", "WarcraftImageLabV2\WarcraftImageLabV2.csproj", "{1C5916BA-7B74-448D-AF52-A57F32DC7A05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarcraftImageLab", "WarcraftImageLab\WarcraftImageLab.csproj", "{1C5916BA-7B74-448D-AF52-A57F32DC7A05}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War3Net", "War3Net\War3Net.csproj", "{7D60B57C-78D3-4A76-8D29-AADC4CEB3410}"
 EndProject

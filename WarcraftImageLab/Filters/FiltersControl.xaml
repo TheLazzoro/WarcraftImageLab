@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <GroupBox
-            Header="Warcraft III Icon Borders"
+            Header="Warcraft III Icon Overlays"
             Margin="5,5,10,0"
         >
             <Grid>
@@ -59,6 +59,14 @@
                     <CheckBox x:Name="checkDISPAS" Content="DISPAS" Margin="0,10,0,0" Click="checkDISPAS_Click" />
                     <CheckBox x:Name="checkDISATC" Content="DISATC" Margin="0,10,0,0" Click="checkDISATC_Click" />
                 </StackPanel>
+
+                <TextBlock
+                    x:Name="textblockMessage"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Bottom"
+                    Foreground="Orange"
+                />
 
             </Grid>
         </GroupBox>
