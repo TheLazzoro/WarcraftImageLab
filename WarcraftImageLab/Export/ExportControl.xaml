@@ -102,7 +102,7 @@
                     x:Name="btnExportAll"
                     Style="{StaticResource btnOrange}"
                     IsEnabled="False"
-                    Content="Export"
+                    Content="Export All"
                     Grid.Column="32"
                     Grid.Row="7"
                     Width="100"

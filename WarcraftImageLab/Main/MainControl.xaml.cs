@@ -266,8 +266,14 @@ namespace WarcraftImageLab.Content
         private void listViewFiles_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             bool hasSelection = listViewFiles.SelectedItem != null;
+            menuExport.IsEnabled = hasSelection;
             menuOpenFileLocation.IsEnabled = hasSelection;
             menuRemoveItem.IsEnabled = hasSelection;
+
+            if(string.IsNullOrEmpty(exportControl.textblockOutputDir.Text))
+            {
+                menuExport.IsEnabled = false;
+            }
         }
     }
 }
