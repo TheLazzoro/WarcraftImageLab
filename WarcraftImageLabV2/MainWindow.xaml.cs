@@ -62,6 +62,12 @@ namespace WarcraftImageLabV2
             ChangeTab(Model.TabMenuEnum.Export, (Button)e.Source);
         }
 
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.ShowDialog();
+        }
+
         private void ChangeTab(Model.TabMenuEnum tab, Button selected)
         {
             mainControl.ChangeTab(tab);
@@ -97,5 +103,6 @@ namespace WarcraftImageLabV2
             settings.WindowHeight = (int)this.Height;
             Settings.Save();
         }
+
     }
 }

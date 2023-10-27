@@ -16,6 +16,7 @@
         <StackPanel Orientation="Horizontal">
             <Rectangle
                 x:Name="rectColor"
+                Fill="Black"
                 Width="16"
                 Height="16"
                 Margin="10,10,0,0"

@@ -52,6 +52,15 @@
             Content="EXPORT" Click="btnTabExport_Click"
         />
 
+        <Button x:Name="btnAbout"
+            Style="{StaticResource btnMenu}"
+            Grid.Row="4"
+            Content="ABOUT"
+            Height="35"
+            VerticalAlignment="Bottom"
+            Margin="0,0,0,20" Click="btnAbout_Click"
+        />
+
         <content:MainControl 
             x:Name="mainControl"
             Grid.Column="1"
