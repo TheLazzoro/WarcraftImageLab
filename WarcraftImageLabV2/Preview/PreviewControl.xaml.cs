@@ -104,5 +104,19 @@ namespace WarcraftImageLabV2.Preview
             textColor.Text = $"R:{pixel.R} G:{pixel.G} B:{pixel.B} A:{pixel.A}   {color}";
         }
 
+        private void image_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var size = e.NewSize;
+            rectBackground.Width = size.Width;
+            rectBackground.Height = size.Height;
+        }
+
+        private void checkBoxTransparency_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)checkBoxTransparency.IsChecked)
+                rectBackground.Fill = rectFillTransparency;
+            else
+                rectBackground.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+        }
     }
 }

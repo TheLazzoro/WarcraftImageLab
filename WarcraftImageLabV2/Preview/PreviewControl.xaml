@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="45"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -18,35 +18,55 @@
                 x:Name="rectColor"
                 Width="16"
                 Height="16"
-                Margin="10,0,0,0"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
             />
             <TextBlock
                 x:Name="textColor"
                 Margin="10,10,0,0"
+                VerticalAlignment="Top"
                 >R:0 G:0 B:0 A:0</TextBlock>
         </StackPanel>
 
-        <TextBlock
-            x:Name="textBlockResolution"
+        <CheckBox
+            x:Name="checkBoxTransparency"
+            Content="View Transparency"
             HorizontalAlignment="Right"
-            Text="Resolution:"
             Margin="10"
+            IsChecked="True" Click="checkBoxTransparency_Click"
         />
 
-        <!--Background="Red" This line can be put in the Border, but we need to manually re-scale it to match the preview image size. -->
-        <Border
-            
+        <TextBlock
+            x:Name="textBlockResolution"
+            Text="Resolution:"
+            Margin="10,30,0,0"
+        />
+
+        <Rectangle
+            x:Name="rectBackground"
             Grid.Row="1"
+            UseLayoutRounding="True"
+            Width="128"
+            Height="128"
             >
-            
+            <Rectangle.Fill>
+                <ImageBrush
+                    x:Name="rectFillTransparency"
+                    TileMode="Tile"
+                    Stretch="Fill"
+                    Viewport="0,0,30,30"
+                    ViewportUnits="Absolute" 
+                    ImageSource="/Resources/transparencytiles.png" />
+            </Rectangle.Fill>
+        </Rectangle>
         <Image
+            Grid.Row="1"
             UseLayoutRounding="True"
             x:Name="image"
             Stretch="Uniform"
             StretchDirection="DownOnly"
-            MouseDown="image_MouseDown"
-            />
-        </Border>
+            MouseDown="image_MouseDown" SizeChanged="image_SizeChanged"
+        />
 
         <TextBlock
             x:Name="textBlockError"

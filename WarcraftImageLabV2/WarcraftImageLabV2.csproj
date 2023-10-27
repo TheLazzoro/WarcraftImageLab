@@ -7,6 +7,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
     <Version>1.0.0</Version>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,6 +42,7 @@
     <Content Include="libwebp_x86.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="logo.ico" />
     <Content Include="Resources\BLPLAB\blplabcl.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
