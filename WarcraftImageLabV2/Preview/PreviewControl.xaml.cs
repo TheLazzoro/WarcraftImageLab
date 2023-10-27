@@ -47,17 +47,24 @@ namespace WarcraftImageLabV2.Preview
             if (string.IsNullOrEmpty(imageFilePath))
                 return;
 
-            Bitmap bitmap = Reader.ReadImageFile(imageFilePath);
-            Processor processor = new Processor(string.Empty, true);
-            var list = processor.ApplyFilters(bitmap);
-            var processedImage = list[0].Image;
+            try
+            {
+                Bitmap bitmap = Reader.ReadImageFile(imageFilePath);
+                Processor processor = new Processor(string.Empty, true);
+                var list = processor.ApplyFilters(bitmap);
+                var processedImage = list[0].Image;
 
-            BitmapSource bitmapSource = BitmapConverter.ToBitmapSource(processedImage);
-            image.Source = bitmapSource;
+                BitmapSource bitmapSource = BitmapConverter.ToBitmapSource(processedImage);
+                image.Source = bitmapSource;
 
-            int width = (int)Math.Round(bitmapSource.Width);
-            int height = (int)Math.Round(bitmapSource.Height);
-            textBlockResolution.Text = $"Resolution: {width}x{height}";
+                int width = (int)Math.Round(bitmapSource.Width);
+                int height = (int)Math.Round(bitmapSource.Height);
+                textBlockResolution.Text = $"Resolution: {width}x{height}";
+            }
+            catch (Exception ex)
+            {
+                SetErrorMessage(ex.Message);
+            }
         }
 
         public void SetErrorMessage(string errorMsg)

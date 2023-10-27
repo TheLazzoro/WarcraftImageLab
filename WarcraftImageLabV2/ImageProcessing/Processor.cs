@@ -62,13 +62,13 @@ namespace WarcraftImageLabV2.ImageProcessing
 
             bool notClassicCompatible =
                 settings.BorderMode == BorderModeEnum.Classic &&
-                source.Width != 64 &&
-                source.Height != 64;
+                (source.Width != 64 ||
+                source.Height != 64);
 
             bool notReforgedCompatible =
                 settings.BorderMode == BorderModeEnum.Reforged &&
-                source.Width != 256 &&
-                source.Height != 256;
+                (source.Width != 256 ||
+                source.Height != 256);
 
             if (isNone || notClassicCompatible || notReforgedCompatible)
             {
